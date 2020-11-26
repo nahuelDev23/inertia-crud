@@ -169,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606395916098</updated>
       <workItem from="1606395917133" duration="943000" />
-      <workItem from="1606397075217" duration="11088000" />
+      <workItem from="1606397075217" duration="18719000" />
     </task>
     <servers />
   </component>
@@ -181,9 +181,21 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2544" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606405942305" />
-    <state x="2459" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1606406379926">
+    <state x="2459" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1606416779919">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2459" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606406379926" />
+    <state x="2459" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606416779919" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue</url>
+          <line>36</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,8 +2,8 @@
     <App-Layout>
         <h1>Login</h1>
         <div>
-            <div v-for="(erro,index) in errors" :key="index">
-                {{ erro }}
+            <div v-if="errorLogin.errorLogin">
+                {{ errorLogin.errorLogin }}
             </div>
             <form @submit.prevent="sendFormLogin">
                 <label>
@@ -28,6 +28,7 @@ export default {
     },
     props:{
         errors: Object,
+        errorLogin: Object,
     },
     data(){
         return{

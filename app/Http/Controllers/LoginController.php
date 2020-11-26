@@ -16,10 +16,11 @@ class LoginController extends Controller
 
     public function authentication(Request $request)
     {
-//        $request->validate([
-//            'email' => ['required','unique:users'],
-//            'password' => ['required','min:5'],
-//        ]);
+        $request->validate([
+           'email' => ['required'],
+           'password' => ['required'],
+        ]);
+
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password],true))
         {
             Inertia::share('user', function () {
@@ -27,5 +28,14 @@ class LoginController extends Controller
                });
             return Redirect::route('home');
         }
+
+        return Redirect::route('login')->with('errorLogin','Ups Algo salio mal');
+
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::route('home');
     }
 }

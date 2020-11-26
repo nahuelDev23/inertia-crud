@@ -23,13 +23,12 @@ class AppServiceProvider extends ServiceProvider
                     'success' => Session::get('success'),
                 ];
             });
-
-//        Inertia::share('user', function () {
-//            return [
-//                'user' => Session::get(Auth::user())
-//            ];
-//        });
-
+        Inertia::share('errorLogin',
+            function () {
+                return [
+                    'errorLogin' => Session::get('errorLogin'),
+                ];
+            });
     }
 
     /**
