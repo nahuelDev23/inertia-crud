@@ -36,7 +36,7 @@
 
                         <div class="text-sm">
                             <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                                Olvidaste la contraseña? xdddd
+                                <inertia-link :href="route('forget-password')">Olvidaste la contraseña? xdddd</inertia-link>
                             </a>
                         </div>
                     </div>

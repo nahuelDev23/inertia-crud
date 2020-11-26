@@ -1,0 +1,57 @@
+<template>
+    <app-Layout>
+        <h1>email</h1>
+        <form @submit.prevent="sendForm">
+            <div class="form-group row">
+                <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                <div class="col-md-6">
+                    <input id="email" type="email"  autocomplete="email" autofocus v-model="form.email">
+                </div>
+            </div>
+
+            <div class="form-group row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        Send Password Reset Link
+                    </button>
+                </div>
+            </div>
+        </form>
+    </app-Layout>
+
+</template>
+
+<script>
+export default {
+name: "Email"
+}
+</script>
+
+<style scoped>
+
+</style>
+<script>
+import AppLayout from "@/Layouts/AppLayout";
+export default {
+    name: "Register",
+    components:{
+        AppLayout
+    },
+    props:{
+        errors: Object,
+    },
+    data(){
+        return{
+            form:{
+                email: null,
+            }
+        }
+    },
+    methods:{
+        sendForm()
+        {
+            this.$inertia.post('/forget-password',this.form);
+        }
+    }
+}
+</script>
