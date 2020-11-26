@@ -36,12 +36,12 @@
 
                         <div class="text-sm">
                             <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                                Forgot your password?
+                                Olvidaste la contraseña? xdddd
                             </a>
                         </div>
                     </div>
                     <button type="submit"
-                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white main-color-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                         <!-- Heroicon name: lock-closed -->
                         <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .push-error{
     font-weight: 500;
     text-align: center;
@@ -97,5 +97,11 @@ export default {
     color: #721c24;
     background-color: #f8d7da;
     border:2px solid #f5c6cb;
+}
+.main-color-button{
+    background-color: #575965;
+    &:hover{
+         background-color: lighten(#575965,5%);
+     }
 }
 </style>
