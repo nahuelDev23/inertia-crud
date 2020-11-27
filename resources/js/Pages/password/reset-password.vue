@@ -51,8 +51,11 @@ export default {
     methods:{
         resetForm()
         {
-            this.$inertia.post('reset-password ',this.form);
+            this.$inertia.post('forgot-password ',this.form);
+
+            this.$inertia.post(this.route("password.update"), this.form);
         }
+        
     }
 }
 </script>

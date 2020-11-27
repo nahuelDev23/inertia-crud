@@ -2322,7 +2322,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     resetForm: function resetForm() {
-      this.$inertia.post('reset-password ', this.form);
+      this.$inertia.post('forgot-password ', this.form);
+      this.$inertia.post(this.route("password.update"), this.form);
     }
   }
 });
