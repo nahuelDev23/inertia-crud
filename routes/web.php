@@ -16,10 +16,5 @@ Route::get('/login',[\App\Http\Controllers\LoginController::class,'index'])->nam
 Route::post('/auth',[\App\Http\Controllers\LoginController::class,'authentication']);
 Route::get('/logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
 
-/**
- * Terminar
- */
-Route::get('forget-password', [\App\Http\Controllers\ForgotPasswordController::class,'getEmail'])->name('forget-password');
-Route::post('forget-password', [\App\Http\Controllers\ForgotPasswordController::class,'postEmail']);
 
 
