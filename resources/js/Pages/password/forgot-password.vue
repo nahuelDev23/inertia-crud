@@ -1,6 +1,9 @@
 <template>
     <app-Layout>
-        <h1>email</h1>
+        <h1>forgot password</h1>
+        <div v-for="(erro,index) in errors" :key="index">
+            {{ erro }}
+        </div>
         <form @submit.prevent="sendForm">
             <div class="form-group row">
                 <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
@@ -23,7 +26,11 @@
 
 <script>
 export default {
-name: "Email"
+    name: "Email",
+    props: {
+        errors: Object,
+        errorLogin: Object,
+    },
 }
 </script>
 
@@ -50,7 +57,7 @@ export default {
     methods:{
         sendForm()
         {
-            this.$inertia.post('/forget-password',this.form);
+            this.$inertia.post('forgot-password',this.form);
         }
     }
 }
