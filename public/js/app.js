@@ -1970,7 +1970,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    logout: function logout() {
+      this.$inertia.post(this.route('logout'));
+    }
+  }
+});
 
 /***/ }),
 
@@ -2120,7 +2126,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendFormLogin: function sendFormLogin() {
-      this.$inertia.post('/auth', this.form);
+      this.$inertia.post(this.route('login'), this.form);
     }
   }
 });
@@ -2160,6 +2166,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Register",
@@ -2171,16 +2186,78 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      procesing: false,
       form: {
         name: null,
         email: null,
-        password: null
+        password: null,
+        password_confirmation: null
       }
     };
   },
   methods: {
-    sendForm: function sendForm() {
-      this.$inertia.post('/register', this.form);
+    register: function register() {
+      var _this = this;
+
+      this.procesing = true;
+      this.$inertia.post(this.route('register'), this.form).then(function () {
+        _this.processng = false;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "VerifyEmail",
+  props: {
+    errors: Object
+  },
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      open: true
+    };
+  },
+  methods: {
+    sendVerificationEmail: function sendVerificationEmail() {
+      this.$inertia.post(this.route('verification.send')).then(function () {});
     }
   }
 });
@@ -2238,7 +2315,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Register",
+  name: "PasswordResetLink",
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2253,8 +2330,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    sendForm: function sendForm() {
-      this.$inertia.post('forgot-password', this.form);
+    requestPasswordLink: function requestPasswordLink() {
+      this.$inertia.post(this.route('password.email'), this.form).then(function () {});
     }
   }
 });
@@ -2321,8 +2398,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    resetForm: function resetForm() {
-      this.$inertia.post('forgot-password ', this.form);
+    updatePassword: function updatePassword() {
       this.$inertia.post(this.route("password.update"), this.form);
     }
   }
@@ -43471,16 +43547,9 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.$page.user
-            ? _c(
-                "li",
-                { staticClass: "header__item" },
-                [
-                  _c("inertia-link", { attrs: { href: "/logout" } }, [
-                    _vm._v("Logout")
-                  ])
-                ],
-                1
-              )
+            ? _c("li", { staticClass: "header__item" }, [
+                _c("a", { on: { click: _vm.logout } }, [_vm._v("Logout")])
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
@@ -43726,7 +43795,7 @@ var render = function() {
                     [
                       _c(
                         "inertia-link",
-                        { attrs: { href: "/forgot-password" } },
+                        { attrs: { href: _vm.route("password.request") } },
                         [_vm._v("Olvidaste la contraseña? xdddd")]
                       )
                     ],
@@ -43825,12 +43894,13 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
-                return _vm.sendForm($event)
+                return _vm.register($event)
               }
             }
           },
           [
             _c("label", [
+              _vm._v("\n                nombre\n                "),
               _c("input", {
                 directives: [
                   {
@@ -43854,6 +43924,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", [
+              _vm._v("\n                email\n                "),
               _c("input", {
                 directives: [
                   {
@@ -43877,6 +43948,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", [
+              _vm._v("\n                password\n                "),
               _c("input", {
                 directives: [
                   {
@@ -43899,13 +43971,128 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("button", { attrs: { type: "submit" } }, [_vm._v("send")])
-          ]
+            _c("label", [
+              _vm._v("\n                repetir password\n                "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.password_confirmation,
+                    expression: "form.password_confirmation"
+                  }
+                ],
+                attrs: { type: "password" },
+                domProps: { value: _vm.form.password_confirmation },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.form,
+                      "password_confirmation",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            ]),
+            _vm._v("\n            ya tenes cuenta? "),
+            _c("InertiaLink", { attrs: { href: _vm.route("login") } }, [
+              _vm._v("Login")
+            ]),
+            _vm._v(" "),
+            _c("button", { attrs: { type: "submit" } }, [_vm._v("send")]),
+            _vm._v(" "),
+            _vm.procesing ? _c("div", [_vm._v("Cargando...")]) : _vm._e()
+          ],
+          1
         )
       ],
       2
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "app-Layout",
+    [
+      _c("h1", [_vm._v("ENVIAR EMAIL DE VALIDACION")]),
+      _vm._v(" "),
+      _vm._l(_vm.errors, function(erro, index) {
+        return _c("div", { key: index }, [
+          _vm._v("\n        " + _vm._s(erro) + "\n    ")
+        ])
+      }),
+      _vm._v(" "),
+      _vm.$page.flash.status && _vm.open
+        ? _c("div", [
+            _vm._v("\n        Se envio un email\n        "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.open = false
+                  }
+                }
+              },
+              [_vm._v("x")]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.sendVerificationEmail($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group row mb-0" }, [
+            _c("div", { staticClass: "col-md-6 offset-md-4" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [
+                  _vm._v(
+                    "\n                    enviar mail para resetear\n                "
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      )
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43946,7 +44133,7 @@ var render = function() {
           on: {
             submit: function($event) {
               $event.preventDefault()
-              return _vm.sendForm($event)
+              return _vm.requestPasswordLink($event)
             }
           }
         },
@@ -44048,7 +44235,7 @@ var render = function() {
           on: {
             submit: function($event) {
               $event.preventDefault()
-              return _vm.resetForm($event)
+              return _vm.updatePassword($event)
             }
           }
         },
@@ -56457,6 +56644,8 @@ var map = {
 	"./Login.vue": "./resources/js/Pages/Login.vue",
 	"./Register": "./resources/js/Pages/Register.vue",
 	"./Register.vue": "./resources/js/Pages/Register.vue",
+	"./password/VerifyEmail": "./resources/js/Pages/password/VerifyEmail.vue",
+	"./password/VerifyEmail.vue": "./resources/js/Pages/password/VerifyEmail.vue",
 	"./password/forgot-password": "./resources/js/Pages/password/forgot-password.vue",
 	"./password/forgot-password.vue": "./resources/js/Pages/password/forgot-password.vue",
 	"./password/reset-password": "./resources/js/Pages/password/reset-password.vue",
@@ -56779,6 +56968,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/password/VerifyEmail.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Pages/password/VerifyEmail.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true& */ "./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true&");
+/* harmony import */ var _VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerifyEmail.vue?vue&type=script&lang=js& */ "./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "344cd698",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/password/VerifyEmail.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./VerifyEmail.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/password/VerifyEmail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/password/VerifyEmail.vue?vue&type=template&id=344cd698&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_344cd698_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/password/forgot-password.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/Pages/password/forgot-password.vue ***!
@@ -57005,8 +57263,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp2\htdocs\inertiaCrud\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp2\htdocs\inertiaCrud\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

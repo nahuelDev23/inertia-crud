@@ -4,7 +4,7 @@
         <div v-for="(erro,index) in errors" :key="index">
             {{ erro }}
         </div>
-        <form @submit.prevent="resetForm">
+        <form @submit.prevent="updatePassword">
             <div class="form-group row">
                 <input type="hidden" v-model="form.token">
                 <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
@@ -49,13 +49,11 @@ export default {
         }
     },
     methods:{
-        resetForm()
+        updatePassword()
         {
-            this.$inertia.post('forgot-password ',this.form);
-
             this.$inertia.post(this.route("password.update"), this.form);
         }
-        
+
     }
 }
 </script>

@@ -36,7 +36,7 @@
 
                         <div class="text-sm">
                             <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                                <inertia-link href="/forgot-password">Olvidaste la contraseña? xdddd</inertia-link>
+                                <inertia-link :href="route('password.request')">Olvidaste la contraseña? xdddd</inertia-link>
                             </a>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ export default {
     },
     methods: {
         sendFormLogin() {
-            this.$inertia.post('/auth', this.form);
+            this.$inertia.post(this.route('login'), this.form);
         }
     }
 }

@@ -122,3 +122,33 @@ como vemos arriba __['verified']__ pide que el usuario tenga el email verificado
 * Para saber si hay errores de formulario tenemos
 `Object.keys($page.error).length > 0` 
 $page.error guarda los errores de los formularios
+
+## Maneras de obtener token con fortify
+1. usando desde vue `route().params.token`
+2. yendo a __AppServiceProvider.php__ y haciendo un __share__:
+```php
+    public function boot()
+        {
+            Inertia::share([
+                "flash" => function (){
+                    return [
+                        "status" => session("status"),
+                        "success"=> session("success"),
+                        "error" => session("error"),
+                    ];
+                },
+                "request" => function (){
+                    return [
+                        "token" => request()->route("token")
+                    ];
+                },
+            ]);
+        }
+```
+y de esa manera lo accedemos usando `$page.request.token`
+
+## cambiar en fortify home por defecto
+1. Por defecto /dashboard es la pagina inicial, vamos a cambiarla por /
+vamos a RouteserviceProvicer.php
+`public const HOME = '/';`
+y listo

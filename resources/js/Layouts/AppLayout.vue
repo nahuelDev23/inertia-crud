@@ -20,7 +20,7 @@
                          :class="route().current('login') ? 'active_link' : ''">Login</inertia-link>
                     </li>
                     <li class="header__item" v-if="$page.user">
-                        <inertia-link  href="/logout">Logout</inertia-link>
+                        <a @click="logout">Logout</a>
                     </li>
                 </ul>
                 <div class="header__user">
@@ -36,7 +36,11 @@
 </template>
 <script>
     export default {
-
+        methods:{
+            logout(){
+                this.$inertia.post(this.route('logout'))
+            }
+        }
     }
 </script>
 <style lang="scss" scoped>
