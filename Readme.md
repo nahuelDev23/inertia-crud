@@ -148,7 +148,8 @@ $page.error guarda los errores de los formularios
 y de esa manera lo accedemos usando `$page.request.token`
 
 ## cambiar en fortify home por defecto
-1. Por defecto /dashboard es la pagina inicial, vamos a cambiarla por /
-vamos a RouteserviceProvicer.php
-`public const HOME = '/';`
-y listo
+1. Por defecto /dashboard es la pagina inicial, vamos a cambiarla por __/__
+vamos a __RouteserviceProvicer.php__ y en onde dice `public const HOME = '/dashboard';`
+lo cambiamos a `public const HOME = '/';` de esa manera cuando nos logeamos nos manda al home.
+porque cuando usas fortify con sus metodos estaticos, por defecto despues de hacer
+el login te manda a dashboard y te tira error si no tenes esa vista configurada.
