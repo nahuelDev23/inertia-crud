@@ -2,9 +2,10 @@
     <div class="card">
         <div class="card__top">
             <div class="card__image">
-                <img :src="post.image" alt="">
+                <img v-if="!post.is_anon" :src="post.image" alt="">
+                <img v-else src="img/anon_image.jpg" alt="">
             </div>
-            <div class="card__category">{{post.category.category}}</div>
+            <div :class="post.category.category.toLowerCase()+'class'" class="card__category">{{post.category.category}}</div>
         </div>
         <div class="card__mid">
             <div class="card__title">{{ post.title.slice(0,60) }}...</div>
@@ -21,7 +22,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
-                39 comentarios
+                {{ post.comment.length }} comentarios
             </div>
         </div>
     </div>
@@ -30,13 +31,16 @@
 <script>
 export default {
 props:{
-    post:Object
+    post:Object,
+    clase:String,
 },
-name: "CardComponent"
+name: "CardComponent",
 }
+
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
+
 .card{
     background-color: #fff;
     display: grid;
@@ -102,6 +106,7 @@ name: "CardComponent"
     }
     & > svg {
         font-size: 1rem;
+        padding-right: .5rem;
         @media (min-width: 640px) {
             font-size: .9rem;
         }
@@ -112,5 +117,43 @@ name: "CardComponent"
             width: 1.5rem;
         }
     }
+}
+
+.lgbtqclass{
+    background-color: var(--lgbt-color);
+}
+.sexualidadclass{
+    color:var(--text-color);
+    background-color: var(--sexualidad-color);
+}
+.consejoclass{
+    background-color: var(--consejo-color);
+}
+.videojuegosclass{
+    background-color: var(--videojuegos-color);
+}
+.seriesclass{
+    color:var(--text-color);
+    background-color: var(--series-color);
+}
+.paranormalclass{
+    color:var(--text-color);
+    background-color: var(--paranormal-color);
+}
+.musicaclass{
+    color:var(--text-color);
+    background-color: var(--musica-color);
+}
+.gastronomiaclass{
+    color:var(--text-color);
+    background-color: var(--gastronomia-color);
+}
+.noticiasclass{
+    color:var(--text-color);
+    background-color: var(--noticias-color);
+}
+.politicaclass{
+    color:var(--text-color);
+    background-color: var(--politica-color);
 }
 </style>

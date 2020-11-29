@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comments;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Category;
@@ -46,6 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
         User::factory(150)->create();
         Post::factory(100)->create();
+        Comments::factory(200)->create();
 
     }
 }

@@ -32,7 +32,7 @@ class Post extends Model
     //un post puede tener varios comentarios
     public function comment()
     {
-        return $this->hasMany(Comment::class)->whereNull('parent_id')->orderBy('created_at','DESC');
+        return $this->hasMany(Comments::class)->orderBy('created_at','DESC');
     }
 
     //un post puede tener una categoria

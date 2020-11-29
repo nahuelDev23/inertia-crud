@@ -68,7 +68,18 @@
     --primary-color:#575965;
     --text-color:#f8f8f6;
     --secondary-color:#72d2e3;
+    --lgbt-color:#FEBAC6;
+    --sexualidad-color:#FF6F5E;
+    --consejo-color:#EFD2BC;
+    --videojuegos-color:#AADCCA;
+    --series-color:#F57B51;
+    --paranormal-color:#8D89A3;
+    --musica-color:#0096D1;
+    --gastronomia-color:#444251;
+    --noticias-color:#BC2C3D;
+    --politica-color:#2C2627;
 }
+
     ///* sm */
     //@media (min-width: 640px) { /* ... */ }
     ///* md */
@@ -130,10 +141,12 @@
         }
         &__icon{
             font-size: 1.5rem;
+            margin-right: 1rem;
         }
     }
     .active_link{
         color:#72d2e3;
         background-color: rgba(0,0,0,.4);
     }
+
 </style>

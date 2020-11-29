@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 .card__container{
     display: grid;
     grid-template-columns: repeat(1,1fr);
@@ -40,5 +40,19 @@ export default {
         grid-template-columns: repeat(3,1fr);
     }
 }
-
+:root{
+    --primary-color:#575965;
+    --text-color:#f8f8f6;
+    --secondary-color:#72d2e3;
+    --lgbt-color:#FEBAC6;
+    --sexualidad-color:#FF6F5E;
+    --consejo-color:#EFD2BC;
+    --videojuegos-color:#AADCCA;
+    --series-color:#F57B51;
+    --paranormal-color:#8D89A3;
+    --musica-color:#0096D1;
+    --gastronomia-color:#444251;
+    --noticias-color:#BC2C3D;
+    --politica-color:#2C2627;
+}
 </style>
