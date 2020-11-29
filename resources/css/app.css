@@ -4,5 +4,6 @@
 @import 'card.scss';
 body{
     background-color: #cdd5dc;
+    position: relative;
 }
 
