@@ -3,16 +3,49 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use \App\Models\User;
+use \App\Models\Category;
+use \App\Models\Post;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+        Category::factory()->create([
+            "category" => "General",
+        ]);
+       Category::factory()->create([
+            "category" => "Sexualidad",
+        ]);
+        Category::factory()->create([
+            "category" => "Consejos",
+        ]);
+        Category::factory()->create([
+            "category" => "Videojuegos",
+        ]);
+        Category::factory()->create([
+            "category" => "Series",
+        ]);
+        Category::factory()->create([
+            "category" => "Paranormal",
+        ]);
+        Category::factory()->create([
+            "category" => "Musica",
+        ]);
+        Category::factory()->create([
+            "category" => "Gastronomia",
+        ]);
+        Category::factory()->create([
+            "category" => "Noticias",
+        ]);
+        Category::factory()->create([
+            "category" => "Politica",
+        ]);
+        Category::factory()->create([
+            "category" => "LGBTQ+",
+        ]);
+        User::factory(150)->create();
+        Post::factory(100)->create();
+
     }
 }

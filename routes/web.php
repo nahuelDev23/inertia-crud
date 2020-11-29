@@ -1,20 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\VistasController;
+use \App\Http\Controllers\HomeController;
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return Inertia\Inertia::render('Dashboard');
 //})->name('dashboard');
 
-Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
-Route::get('/about',[\App\Http\Controllers\HomeController::class,'about'])->name('about')->middleware('verified');
+Route::get('/',[HomeController::class,'index'])->name('home');
+//Route::get('/about',[HomeController::class,'about'])->name('about')->middleware('verified');
 
-//Route::get('/register',[\App\Http\Controllers\UserController::class,'index'])->name('register');
-//Route::post('/register',[\App\Http\Controllers\UserController::class,'store']);
-//
-//Route::get('/login',[\App\Http\Controllers\LoginController::class,'index'])->name('login');
-//Route::post('/auth',[\App\Http\Controllers\LoginController::class,'authentication']);
-//Route::get('/logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
+Route::get('layout',[VistasController::class,'layout'])->name('layout');
+
+Route::get('General',[VistasController::class,'general'])->name('General');
+Route::get('Sexualidad',[VistasController::class,'sexualidad'])->name('Sexualidad');
+Route::get('Consejos',[VistasController::class,'consejos'])->name('Consejos');
+Route::get('Videojuegos',[VistasController::class,'videojuegos'])->name('Videojuegos');
+Route::get('Series',[VistasController::class,'series'])->name('Series');
+Route::get('Paranormal',[VistasController::class,'paranormal'])->name('Paranormal');
+Route::get('Musica',[VistasController::class,'musica'])->name('Musica');
+Route::get('Gastronomia',[VistasController::class,'gastronomia'])->name('Gastronomia');
+Route::get('Noticias',[VistasController::class,'noticias'])->name('Noticias');
+Route::get('Politica',[VistasController::class,'politica'])->name('Politica');
+Route::get('Informatica',[VistasController::class,'informatica'])->name('Informatica');
+Route::get('LGBTQ+',[VistasController::class,'lgbtq'])->name('LGBTQ+');
+
 
 
 

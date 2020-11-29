@@ -6,6 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
@@ -36,10 +37,16 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::registerView(function (){
-            return Inertia::render('Register')->toResponse(request());
+            $categories = Category::all();
+            return Inertia::render('Register',[
+                'categories' => $categories
+            ])->toResponse(request());
         });
         Fortify::loginView(function (){
-            return Inertia::render('Login')->toResponse(request());
+            $categories = Category::all();
+            return Inertia::render('Login',[
+                'categories' => $categories
+            ])->toResponse(request());
         });
         Fortify::requestPasswordResetLinkView(function(Request $request){
             return Inertia::render('password/forgot-password')->toResponse($request);

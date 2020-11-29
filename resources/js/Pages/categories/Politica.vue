@@ -1,13 +1,13 @@
 <template>
     <App-Layout>
-        about
+        <h1>pol</h1>
     </App-Layout>
 </template>
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 export default {
-    name: "About",
+    name: "Politica",
     components:{
         AppLayout
     }

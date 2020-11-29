@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 class HomeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Home');
+       $posts = Post::orderBy('created_at', 'DESC')->with('category')->paginate(100);
+       $categories = Category::all();
+        return Inertia::render('Home',[
+            'categories' => $categories,
+            'posts' => $posts
+        ]);
     }
 
-    public function about()
-    {
-        return Inertia::render('About');
-    }
 
 }
