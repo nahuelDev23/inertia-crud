@@ -14,6 +14,10 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('layout',[VistasController::class,'layout'])->name('layout');
 Route::resource('post',PostController::class);
 
+//Route::get('post/ver/{post}',[PostController::class,'show'])->name('post.show');
+//Route::post('post',[PostController::class,'store'])->name('post.store');
+
+
 Route::get('General',[VistasController::class,'general'])->name('General');
 Route::get('Sexualidad',[VistasController::class,'sexualidad'])->name('Sexualidad');
 Route::get('Consejos',[VistasController::class,'consejos'])->name('Consejos');

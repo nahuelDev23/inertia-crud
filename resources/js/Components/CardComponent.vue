@@ -1,4 +1,5 @@
 <template>
+ <inertia-link :href="route('post.show',post.id)">
     <div class="card">
         <div class="card__top">
             <div class="card__image">
@@ -6,11 +7,12 @@
                 <img v-if="!post.is_anon" :src="post.image" alt="">
                 <img v-if="post.is_anon" src="img/anon_image.jpg" alt="">
             </div>
-            <div :class="post.category.category.toLowerCase()+'class'" class="card__category">{{post.category.category}}</div>
+            <div :class="post.category.category.toLowerCase()+'class'" class="card__category">{{post.category.category}}</div>  
         </div>
         <div class="card__mid">
-            <div class="card__title">{{ post.title.slice(0,60) }}...</div>
+           <div class="card__title">{{ post.title.slice(0,60) }}...</div> 
             <div class="card__description">{{ post.description }}</div>
+            
         </div>
         <div class="card__bottom">
             <div class="card__date">
@@ -27,6 +29,7 @@
             </div>
         </div>
     </div>
+ </inertia-link>
 </template>
 
 <script>

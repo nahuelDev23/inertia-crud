@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 use App\Models\User;
+use Inertia\Inertia;
 class PostController extends Controller
 {
     /**
@@ -72,7 +74,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+       $post = Post::findOrFail($id);
+       $categories = Category::all();
+        return Inertia::render('post/show',[    
+            'post' => $post,
+            'categories'=>$categories
+        ]);
     }
 
     /**
