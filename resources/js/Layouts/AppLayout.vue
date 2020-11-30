@@ -18,9 +18,9 @@
                                     <inertia-link :href="route(categories.category)" :class="route().current(categories.category) ? 'active_link' : ''" class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
                                         {{ categories.category }}</inertia-link>
                                 </div>
-                                <a v-if="$page.user" @click="logout" type="submit" class="hover-menu block w-full text-left px-4 py-2 text-sm header__item hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                <inertia-link  v-if="$page.user" @click="logout" type="submit"  class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
                                     Salir
-                                </a>
+                                </inertia-link>
                             </div>
                         </div>
                     </div>
@@ -34,8 +34,8 @@
                     </li>
                 </ul>
                 <div class="header__user">
-                    <span class="header__icon">🧠</span>
-                    <div  class="header__name" v-if="$page.user">{{$page.user.name}} {{$page.user.score}} </div>
+                    <span class="header__icon"><inertia-link :href="route('home')">🧠</inertia-link></span>
+                    <div  class="header__name" v-if="$page.user">{{$page.user.name}} {{$page.user.score}}</div>
                 </div>
             </nav>
         </header>
@@ -74,7 +74,7 @@ import LoadingButtonComponent from '../Components/LoadingButtonComponent.vue';
 import {debounce, mapValues, pickBy} from "lodash";
     export default {
         props:{
-            
+
         },
         components:{
             Modal,

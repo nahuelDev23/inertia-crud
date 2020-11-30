@@ -40,7 +40,7 @@ class PostController extends Controller
         /**
          * hacer la validacion en otro lado
          */
-       
+
         $post = Post::create(
             /**
              * pensar las validaciones
@@ -50,6 +50,7 @@ class PostController extends Controller
                 'body' => ['required'],
                 'description' => ['required', 'max:100'],
                 'category_id' => ['required'],
+                'image' => ['max:1000'],
                 'is_anon' => ['required'],
             ])
         );
@@ -60,10 +61,8 @@ class PostController extends Controller
         $scoreActual = User::select('score')->where('id',auth()->id())->get();
         User::where('id',auth()->id())->update(['score'=>$scoreActual[0]['score']+100]);
 
-        /**
-         * redireccionar al post recien creado
-         */
-        return redirect()->route('home');
+
+        return redirect()->route('post.show',$post);
     }
 
     /**
@@ -74,9 +73,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-       $post = Post::findOrFail($id);
+       $post = Post::with('comment')->where('id',$id)->get();
        $categories = Category::all();
-        return Inertia::render('post/show',[    
+        return Inertia::render('post/show',[
             'post' => $post,
             'categories'=>$categories
         ]);
