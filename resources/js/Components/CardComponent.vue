@@ -1,6 +1,5 @@
 <template>
- <inertia-link :href="route('post.show',post.id)">
-    <div class="card">
+ <inertia-link class="card" :href="route('post.show',post.id)">
         <div class="card__top">
             <div class="card__image">
                 <img v-if="!post.is_anon && post.image == null" src="img/no-image.jpg" alt="">
@@ -28,7 +27,6 @@
                 {{ post.comment.length }} comentarios
             </div>
         </div>
-    </div>
  </inertia-link>
 </template>
 

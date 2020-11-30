@@ -1966,8 +1966,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     post: Object,
@@ -44941,106 +44939,105 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "inertia-link",
-    { attrs: { href: _vm.route("post.show", _vm.post.id) } },
+    {
+      staticClass: "card",
+      attrs: { href: _vm.route("post.show", _vm.post.id) }
+    },
     [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card__top" }, [
-          _c("div", { staticClass: "card__image" }, [
-            !_vm.post.is_anon && _vm.post.image == null
-              ? _c("img", { attrs: { src: "img/no-image.jpg", alt: "" } })
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.post.is_anon
-              ? _c("img", { attrs: { src: _vm.post.image, alt: "" } })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.post.is_anon
-              ? _c("img", { attrs: { src: "img/anon_image.jpg", alt: "" } })
-              : _vm._e()
-          ]),
+      _c("div", { staticClass: "card__top" }, [
+        _c("div", { staticClass: "card__image" }, [
+          !_vm.post.is_anon && _vm.post.image == null
+            ? _c("img", { attrs: { src: "img/no-image.jpg", alt: "" } })
+            : _vm._e(),
           _vm._v(" "),
+          !_vm.post.is_anon
+            ? _c("img", { attrs: { src: _vm.post.image, alt: "" } })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.post.is_anon
+            ? _c("img", { attrs: { src: "img/anon_image.jpg", alt: "" } })
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "card__category",
+            class: _vm.post.category.category.toLowerCase() + "class"
+          },
+          [_vm._v(_vm._s(_vm.post.category.category))]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card__mid" }, [
+        _c("div", { staticClass: "card__title" }, [
+          _vm._v(_vm._s(_vm.post.title.slice(0, 60)) + "...")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card__description" }, [
+          _vm._v(_vm._s(_vm.post.description))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card__bottom" }, [
+        _c("div", { staticClass: "card__date" }, [
           _c(
-            "div",
+            "svg",
             {
-              staticClass: "card__category",
-              class: _vm.post.category.category.toLowerCase() + "class"
+              attrs: {
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg"
+              }
             },
-            [_vm._v(_vm._s(_vm.post.category.category))]
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
+                  stroke: "#4A5568",
+                  "stroke-width": "2",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }
+              })
+            ]
+          ),
+          _vm._v(
+            "\n               " + _vm._s(_vm.post.formateado) + "\n           "
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card__mid" }, [
-          _c("div", { staticClass: "card__title" }, [
-            _vm._v(_vm._s(_vm.post.title.slice(0, 60)) + "...")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card__description" }, [
-            _vm._v(_vm._s(_vm.post.description))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card__bottom" }, [
-          _c("div", { staticClass: "card__date" }, [
-            _c(
-              "svg",
-              {
+        _c("div", { staticClass: "card__comments" }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                fill: "none",
+                viewBox: "0 0 24 24",
+                stroke: "currentColor"
+              }
+            },
+            [
+              _c("path", {
                 attrs: {
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round",
+                  "stroke-width": "2",
+                  d:
+                    "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
                 }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
-                    stroke: "#4A5568",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
-                  }
-                })
-              ]
-            ),
-            _vm._v(
-              "\n               " +
-                _vm._s(_vm.post.formateado) +
-                "\n           "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card__comments" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  fill: "none",
-                  viewBox: "0 0 24 24",
-                  stroke: "currentColor"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    "stroke-width": "2",
-                    d:
-                      "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                  }
-                })
-              ]
-            ),
-            _vm._v(
-              "\n               " +
-                _vm._s(_vm.post.comment.length) +
-                " comentarios\n           "
-            )
-          ])
+              })
+            ]
+          ),
+          _vm._v(
+            "\n               " +
+              _vm._s(_vm.post.comment.length) +
+              " comentarios\n           "
+          )
         ])
       ])
     ]
