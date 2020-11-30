@@ -39,4 +39,18 @@ class Post extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Agrega automanticamente al campo user_id de la tabla project el usuario logeado actualmente
+     * si es que la peticion no la hacemos desde una consola
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        self::creating(function($table){
+            if(! app()->runningInConsole()){
+                $table->user_id = auth()->id();
+            }
+        });
+    }
 }

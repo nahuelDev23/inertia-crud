@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\VistasController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\PostController;
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return Inertia\Inertia::render('Dashboard');
 //})->name('dashboard');
@@ -11,6 +12,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 //Route::get('/about',[HomeController::class,'about'])->name('about')->middleware('verified');
 
 Route::get('layout',[VistasController::class,'layout'])->name('layout');
+Route::resource('post',PostController::class);
 
 Route::get('General',[VistasController::class,'general'])->name('General');
 Route::get('Sexualidad',[VistasController::class,'sexualidad'])->name('Sexualidad');

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->integer('is_admin')->default(0);
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
     }

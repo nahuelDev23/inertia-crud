@@ -14,7 +14,7 @@
                         <div :class="hidden ? 'transform opacity-0 scale-95 hidden' : 'transform opacity-100 scale-100 block' " class="  border-color-secundary bg-primary mr-4 transition origin-top-right absolute right-0 mt-2 w-56 z-10 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 ">
                             <div  class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                 <inertia-link :href="route('home')" :class="route().current('home') ? 'active_link' : ''" class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">Home</inertia-link>
-                                <div v-for="categories in $page.categories">
+                                <div v-for="categories in $page.categories" v-bind:key="categories.id">
                                     <inertia-link :href="route(categories.category)" :class="route().current(categories.category) ? 'active_link' : ''" class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
                                         {{ categories.category }}</inertia-link>
                                 </div>
@@ -35,21 +35,31 @@
                 </ul>
                 <div class="header__user">
                     <span class="header__icon">🧠</span>
-                    <div  class="header__name" v-if="$page.user">{{$page.user.name}}</div>
+                    <div  class="header__name" v-if="$page.user">{{$page.user.name}} {{$page.user.score}} </div>
                 </div>
             </nav>
         </header>
-        <div class="rounded-full p-4 bg-primary fixed right-4 bottom-4 " id="show-modal" @click="showModal = true">
-            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-        </div>
+        <!-- Boton fixed -->
+        <fixed-button-component v-if="$page.user" @open="showModal = true"></fixed-button-component>
+        <!-- Modal formulario agregar post -->
         <modal v-if="showModal" @close="showModal = false">
-            <!--
-              you can use custom content here to overwrite
-              default content
-            -->
-            <h3 slot="header">custom header</h3>
+            <template #header>
+                <h3>Crear Post</h3>
+            </template>
+             <template #body>
+                <form-post-component @send-post="submitPost"  :categories=$page.categories :form="form">
+                     <template #buttons>
+                        <loading-button-component
+                            :loading="processing"
+                            class="btn-indigo"
+                            type="submit"
+                        >
+                            Crear post
+                        </loading-button-component>
+
+                    </template>
+                </form-post-component>
+             </template>
         </modal>
         <article class="main-wrap">
             <slot />
@@ -57,23 +67,50 @@
     </main>
 </template>
 <script>
-
-    import Modal from "@/Components/Modal";
+import Modal from "@/Components/Modal";
+import FixedButtonComponent from '../Components/FixedButtonComponent.vue';
+import FormPostComponent from '../Components/FormPostComponent.vue';
+import LoadingButtonComponent from '../Components/LoadingButtonComponent.vue';
+import {debounce, mapValues, pickBy} from "lodash";
     export default {
         props:{
-            categories:Object,
+            
         },
         components:{
-            Modal
+            Modal,
+            FixedButtonComponent,
+            FormPostComponent,
+            LoadingButtonComponent
 
         },
         data(){
             return{
+                processing:false,
                 hidden:true,
-                showModal:false
+                showModal:false,
+                form:{
+                    title:null,
+                    description:null,
+                    body:null,
+                    image:null,
+                    is_anon:0,
+                    category_id:null,
+                }
             }
         },
         methods:{
+            submitPost(){
+                this.processing = true
+                this.$inertia.post(this.route('post.store'),this.form)
+                .then(()=>{
+                    this.processing = false
+                    this.showModal = false
+                    this.reset()
+                })
+            },
+            reset(){
+                this.form = mapValues(this.form,()=> null);
+        },
             logout(){
                 this.$inertia.post(this.route('logout'))
             }

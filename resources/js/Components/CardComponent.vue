@@ -2,8 +2,9 @@
     <div class="card">
         <div class="card__top">
             <div class="card__image">
+                <img v-if="!post.is_anon && post.image == null" src="img/no-image.jpg" alt="">
                 <img v-if="!post.is_anon" :src="post.image" alt="">
-                <img v-else src="img/anon_image.jpg" alt="">
+                <img v-if="post.is_anon" src="img/anon_image.jpg" alt="">
             </div>
             <div :class="post.category.category.toLowerCase()+'class'" class="card__category">{{post.category.category}}</div>
         </div>
