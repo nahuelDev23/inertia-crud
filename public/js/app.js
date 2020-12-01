@@ -2000,6 +2000,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/LoadingButtonComponent */ "./resources/js/Components/LoadingButtonComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    form: Object
+  },
+  name: "FormCommentComponent",
+  components: {
+    LoadingButton: _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormPostComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/FormPostComponent.vue?vue&type=script&lang=js& ***!
@@ -3161,6 +3195,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Components_FormCommentComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/FormCommentComponent */ "./resources/js/Components/FormCommentComponent.vue");
+/* harmony import */ var _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/LoadingButtonComponent */ "./resources/js/Components/LoadingButtonComponent.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -3198,14 +3238,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "show",
   components: {
+    LoadingButtonComponent: _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FormCommentComponent: _Components_FormCommentComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
     post: Array,
-    categories: Array
+    categories: Array,
+    comments: Array
+  },
+  data: function data() {
+    return {
+      processing: false,
+      form: {
+        comment: null
+      }
+    };
+  },
+  methods: {
+    /**
+     * Enviar comentario
+     */
+    submitComment: function submitComment() {
+      this.processing = true;
+    }
   }
 });
 
@@ -3242,7 +3303,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\n             * A PARTIR DE 600 SE MUESTRA\n             */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n", ""]);
+exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\r\n             * A PARTIR DE 600 SE MUESTRA\r\n             */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n", ""]);
 
 // exports
 
@@ -3508,7 +3569,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n", ""]);
+exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-6b4481d3] {\n  margin-bottom: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -3527,7 +3588,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal-mask[data-v-5f7088f2] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-5f7088f2] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-5f7088f2] {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-5f7088f2] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-5f7088f2] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-5f7088f2] {\n  float: right;\n}\n.modal-enter[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-5f7088f2],\n.modal-leave-active .modal-container[data-v-5f7088f2] {\n  transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".modal-mask[data-v-5f7088f2] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-5f7088f2] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-5f7088f2] {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-5f7088f2] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-5f7088f2] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-5f7088f2] {\n  float: right;\n}\n.modal-enter[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-5f7088f2],\r\n.modal-leave-active .modal-container[data-v-5f7088f2] {\n  transform: scale(1.1);\n}\r\n", ""]);
 
 // exports
 
@@ -45184,6 +45245,67 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.$emit("send-comment")
+        }
+      }
+    },
+    [
+      _c("label", { staticClass: "block " }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.comment,
+              expression: "form.comment"
+            }
+          ],
+          staticClass: "form-textarea mt-1 block w-full mt-4",
+          attrs: { rows: "3", placeholder: "Subila con tu comentario" },
+          domProps: { value: _vm.form.comment },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "comment", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex justify-end" }, [_vm._t("buttons")], 2)
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormPostComponent.vue?vue&type=template&id=2f5cd2c4&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/FormPostComponent.vue?vue&type=template&id=2f5cd2c4&scoped=true& ***!
@@ -47044,28 +47166,42 @@ var render = function() {
           "div",
           { staticClass: "comment" },
           [
-            _c("form", { attrs: { action: "" } }, [
-              _c("label", { staticClass: "block " }, [
-                _c("textarea", {
-                  staticClass: "form-textarea mt-1 block w-full mt-4",
-                  attrs: { rows: "3", placeholder: "Subila con tu comentario" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex justify-end" }, [
-                  _c("button", { staticClass: "btn-indigo  mt-2" }, [
-                    _vm._v("Comentar")
-                  ])
-                ])
+            _c("FormCommentComponent", {
+              attrs: { form: _vm.form },
+              on: { "send-comment": _vm.submitComment },
+              scopedSlots: _vm._u([
+                {
+                  key: "buttons",
+                  fn: function() {
+                    return [
+                      _c(
+                        "loading-button-component",
+                        {
+                          staticClass: "btn-indigo mt-2",
+                          attrs: { loading: _vm.processing, type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Comentar\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
               ])
-            ]),
+            }),
             _vm._v(" "),
-            _vm._l(_vm.post[0].comment, function(comment) {
+            _vm._l(_vm.comments, function(comment) {
               return _c("div", { staticClass: "comment__box" }, [
                 _c("div", { staticClass: "comment__comment shadow" }, [
                   _c("div", { staticClass: "comment__perfil" }, [
                     _vm._v(
                       "\n                        " +
-                        _vm._s(comment.user) +
+                        _vm._s(comment.user.name) +
+                        " " +
+                        _vm._s(comment.user.score) +
                         "\n                    "
                     )
                   ]),
@@ -59421,6 +59557,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Components/FormCommentComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/Components/FormCommentComponent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true& */ "./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true&");
+/* harmony import */ var _FormCommentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormCommentComponent.vue?vue&type=script&lang=js& */ "./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FormCommentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "54944be6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/FormCommentComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormCommentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FormCommentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormCommentComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormCommentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/FormCommentComponent.vue?vue&type=template&id=54944be6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormCommentComponent_vue_vue_type_template_id_54944be6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Components/FormPostComponent.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/Components/FormPostComponent.vue ***!
@@ -61383,8 +61588,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

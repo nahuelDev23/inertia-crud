@@ -22,7 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e50e1bd4-6e60-4fd7-9541-516121a2bb21" name="Default Changelist" comment="" />
+    <list default="true" id="e50e1bd4-6e60-4fd7-9541-516121a2bb21" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/post/show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/post/show.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +215,7 @@
       <workItem from="1606554856895" duration="150000" />
       <workItem from="1606607591467" duration="5206000" />
       <workItem from="1606637644442" duration="40247000" />
-      <workItem from="1606770378347" duration="7764000" />
+      <workItem from="1606770378347" duration="7696000" />
     </task>
     <servers />
   </component>

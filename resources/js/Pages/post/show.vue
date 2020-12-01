@@ -13,18 +13,22 @@
                 </div>
             </div>
             <div class="comment">
-                <form action="">
-                    <label class="block ">
-                        <textarea class="form-textarea mt-1 block w-full mt-4" rows="3" placeholder="Subila con tu comentario"></textarea>
-                        <div class="flex justify-end">
-                            <button class="btn-indigo  mt-2">Comentar</button>
-                        </div>
-                    </label>
-                </form>
-                <div class="comment__box" v-for="comment in post[0].comment">
+                <FormCommentComponent @send-comment="submitComment" :form="form">
+                    <template #buttons>
+                        <loading-button-component
+                            :loading="processing"
+                            class="btn-indigo mt-2"
+                            type="submit"
+                        >
+                            Comentar
+                        </loading-button-component>
+
+                    </template>
+                </FormCommentComponent>
+                <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow">
                         <div class="comment__perfil">
-                            {{comment.user}}
+                            {{comment.user.name}} {{comment.user.score}}
                         </div>
                         {{comment.comment}}
                     </div>
@@ -36,15 +40,36 @@
 
 <script>
 import AppLayout from '../../Layouts/AppLayout.vue'
+import FormCommentComponent from "@/Components/FormCommentComponent";
+import LoadingButtonComponent from "@/Components/LoadingButtonComponent";
 
 export default {
     name: "show",
     components:{
+        LoadingButtonComponent,
+        FormCommentComponent,
         AppLayout
     },
     props:{
         post:Array,
-        categories:Array
+        categories:Array,
+        comments:Array,
+    },
+    data(){
+        return{
+            processing:false,
+            form:{
+                comment:null,
+            }
+        }
+    },
+    methods:{
+        /**
+         * Enviar comentario
+         */
+        submitComment(){
+            this.processing = true
+        }
     }
 
 }
@@ -99,6 +124,9 @@ export default {
             padding: 1rem;
             text-align: justify;
             border-radius:4px;
+        }
+        &__perfil{
+            margin-bottom: 1rem;
         }
     }
 </style>

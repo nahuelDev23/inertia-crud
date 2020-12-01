@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\increaseScoreEvent;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Http\Requests\StorePost;
 class PostController extends Controller
 {
     /**
@@ -35,33 +38,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StorePost $request)
     {
-        /**
-         * hacer la validacion en otro lado
-         */
-
-        $post = Post::create(
-            /**
-             * pensar las validaciones
-             */
-            $this->validate(request(),[
-                'title' => ['required', 'max:60'],
-                'body' => ['required'],
-                'description' => ['required', 'max:100'],
-                'category_id' => ['required'],
-                'image' => ['max:1000'],
-                'is_anon' => ['required'],
-            ])
-        );
-
-        /**
-         * Ver si esto se puede meter en un event/listener
-         */
-        $scoreActual = User::select('score')->where('id',auth()->id())->get();
-        User::where('id',auth()->id())->update(['score'=>$scoreActual[0]['score']+100]);
-
-
+        $post = Post::create($request->all());
+        event(new increaseScoreEvent());
         return redirect()->route('post.show',$post);
     }
 
@@ -69,15 +49,18 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show($id)
     {
        $post = Post::with('comment')->where('id',$id)->get();
        $categories = Category::all();
+       $comments = Comments::where('post_id',$id)->with('user')->get();
+
         return Inertia::render('post/show',[
             'post' => $post,
-            'categories'=>$categories
+            'categories'=>$categories,
+            'comments' => $comments,
         ]);
     }
 
