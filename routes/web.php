@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\VistasController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\PostController;
+use \App\Http\Controllers\CommentsController;
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return Inertia\Inertia::render('Dashboard');
 //})->name('dashboard');
@@ -14,6 +15,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('layout',[VistasController::class,'layout'])->name('layout');
 Route::resource('post',PostController::class);
 
+Route::post('comment/store',[CommentsController::class,'store'])->name('comment.store');
 //Route::get('post/ver/{post}',[PostController::class,'show'])->name('post.show');
 //Route::post('post',[PostController::class,'store'])->name('post.store');
 

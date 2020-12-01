@@ -55,7 +55,7 @@ class PostController extends Controller
     {
        $post = Post::with('comment')->where('id',$id)->get();
        $categories = Category::all();
-       $comments = Comments::where('post_id',$id)->with('user')->get();
+       $comments = Comments::where('post_id',$id)->with('user')->orderBy('created_at','DESC')->get();
 
         return Inertia::render('post/show',[
             'post' => $post,
