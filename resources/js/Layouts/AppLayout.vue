@@ -18,9 +18,9 @@
                                     <inertia-link :href="route(categories.category)" :class="route().current(categories.category) ? 'active_link' : ''" class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
                                         {{ categories.category }}</inertia-link>
                                 </div>
-                                <inertia-link  v-if="$page.user" @click="logout" type="submit"  class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
+                                <a  v-if="$page.user" @click="logout" type="submit"  class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">
                                     Salir
-                                </inertia-link>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,6 @@
                         >
                             Crear post
                         </loading-button-component>
-
                     </template>
                 </form-post-component>
              </template>

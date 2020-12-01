@@ -2222,7 +2222,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -3184,6 +3183,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "show",
@@ -3191,8 +3204,7 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    post: Object,
-    AppLayoutpost: Object,
+    post: Array,
     categories: Array
   }
 });
@@ -3496,7 +3508,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  margin-top: 1rem;\n  grid-template-columns: repeat(1, 1fr);\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  max-height: 20vh;\n}\n.post__top__image[data-v-6b4481d3] {\n  height: 100%;\n}\n.post__top__image > img[data-v-6b4481d3] {\n  height: 100%;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: #fff;\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n", ""]);
 
 // exports
 
@@ -45665,7 +45677,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm.$page.user
                         ? _c(
-                            "inertia-link",
+                            "a",
                             {
                               staticClass:
                                 "block px-4 py-2 text-sm header__item header__item hover-menu",
@@ -47010,11 +47022,13 @@ var render = function() {
       [
         _vm._l(_vm.post, function(p) {
           return _c("div", { staticClass: "post" }, [
-            _c("div", { staticClass: "post__top" }, [
-              _c("div", { staticClass: "post__image" }, [
-                _c("img", { attrs: { src: p.image, alt: "" } })
-              ])
-            ]),
+            p.image
+              ? _c("div", { staticClass: "post__top" }, [
+                  _c("div", { staticClass: "post__image" }, [
+                    _c("img", { attrs: { src: p.image, alt: "" } })
+                  ])
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "post__mid" }, [
               _c("div", { staticClass: "post__title" }, [
@@ -47026,7 +47040,46 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "comment" })
+        _c(
+          "div",
+          { staticClass: "comment" },
+          [
+            _c("form", { attrs: { action: "" } }, [
+              _c("label", { staticClass: "block " }, [
+                _c("textarea", {
+                  staticClass: "form-textarea mt-1 block w-full mt-4",
+                  attrs: { rows: "3", placeholder: "Subila con tu comentario" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex justify-end" }, [
+                  _c("button", { staticClass: "btn-indigo  mt-2" }, [
+                    _vm._v("Comentar")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.post[0].comment, function(comment) {
+              return _c("div", { staticClass: "comment__box" }, [
+                _c("div", { staticClass: "comment__comment shadow" }, [
+                  _c("div", { staticClass: "comment__perfil" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(comment.user) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(comment.comment) +
+                      "\n                "
+                  )
+                ])
+              ])
+            })
+          ],
+          2
+        )
       ],
       2
     )
