@@ -47200,6 +47200,8 @@ var render = function() {
                     _vm._v(
                       "\n                        " +
                         _vm._s(comment.user.name) +
+                        " " +
+                        _vm._s(comment.user.score) +
                         "\n                    "
                     )
                   ]),

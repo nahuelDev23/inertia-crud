@@ -40,11 +40,8 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
-
         $post = Post::create($request->all());
-
         event(new increaseScoreEvent());
-
         return redirect()->route('post.show',$post);
     }
 
@@ -52,7 +49,7 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show($id)
     {

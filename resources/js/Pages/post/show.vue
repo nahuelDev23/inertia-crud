@@ -28,7 +28,7 @@
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow">
                         <div class="comment__perfil">
-                            {{comment.user.name}}
+                            {{comment.user.name}} {{comment.user.score}}
                         </div>
                         {{comment.comment}}
                     </div>
