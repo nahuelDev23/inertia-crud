@@ -93,7 +93,7 @@ export default {
     .comment{
         text-align: center;
         &__comment{
-            background-color: #fff;
+            background-color: rgba(255,255,255,.6);
             margin-bottom: 1rem;
             margin-top: 1rem;
             padding: 1rem;
