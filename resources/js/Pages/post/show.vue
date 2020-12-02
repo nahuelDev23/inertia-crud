@@ -13,18 +13,20 @@
                 </div>
             </div>
             <div class="comment">
-                <FormCommentComponent @send-comment="submitComment" :form="form">
+                <FormCommentComponent @send-comment="submitComment" :form="form" v-if="$page.user">
                     <template #buttons>
                         <loading-button-component
                             :loading="processing"
                             class="btn-indigo mt-2"
                             type="submit"
+
                         >
                             Comentar
                         </loading-button-component>
 
                     </template>
                 </FormCommentComponent>
+                <div v-else>Tenes que estar <inertia-link :href="route('register')">registrado</inertia-link> para comentar</div>
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow">
                         <div class="comment__perfil">
@@ -58,8 +60,10 @@ export default {
     data(){
         return{
             processing:false,
+            id:window.location.pathname.split('/')[2],
             form:{
                 comment:null,
+                post_id:this.post[0].id,
             }
         }
     },
@@ -68,7 +72,7 @@ export default {
          * Enviar comentario
          */
         submitComment(){
-            this.processing = true
+            this.$inertia.post(this.route('comment.store'),this.form);
         }
     }
 

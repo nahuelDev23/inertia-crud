@@ -38,5 +38,15 @@ class Comments extends Model
         return $this->belongsTo(Post::class);
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        self::creating(function($table){
+            if(! app()->runningInConsole()){
+                $table->user_id = auth()->id();
+            }
+        });
+    }
+
 
 }

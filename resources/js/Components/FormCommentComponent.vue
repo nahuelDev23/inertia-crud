@@ -13,7 +13,7 @@
 import LoadingButton from "@/Components/LoadingButtonComponent";
 export default {
 props:{
-    form:Object
+    form:Object,
 },
 name: "FormCommentComponent",
     components: {LoadingButton}
