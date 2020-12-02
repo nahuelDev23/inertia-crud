@@ -111,7 +111,7 @@ import {debounce, mapValues, pickBy} from "lodash";
                 this.form = mapValues(this.form,()=> null);
         },
             logout(){
-                this.$inertia.post(this.route('logout'))
+                this.$inertia.post(this.route('Home'))
             }
         }
     }

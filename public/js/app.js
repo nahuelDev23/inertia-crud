@@ -2302,7 +2302,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
-      this.$inertia.post(this.route('logout'));
+      this.$inertia.post(this.route('Home'));
     }
   }
 });
@@ -2320,6 +2320,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/CardComponent */ "./resources/js/Components/CardComponent.vue");
+//
 //
 //
 //
@@ -3197,6 +3198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Components_FormCommentComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/FormCommentComponent */ "./resources/js/Components/FormCommentComponent.vue");
 /* harmony import */ var _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/LoadingButtonComponent */ "./resources/js/Components/LoadingButtonComponent.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -3239,6 +3242,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -3257,19 +3266,27 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       processing: false,
-      id: window.location.pathname.split('/')[2],
       form: {
         comment: null,
-        post_id: this.post[0].id
+        post_id: this.route().params.post
       }
     };
   },
   methods: {
-    /**
-     * Enviar comentario
-     */
     submitComment: function submitComment() {
-      this.$inertia.post(this.route('comment.store'), this.form);
+      var _this = this;
+
+      this.processing = true;
+      this.$inertia.post(this.route('comment.store'), this.form, {
+        onSuccess: function onSuccess() {
+          _this.processing = false;
+
+          _this.resetComment();
+        }
+      });
+    },
+    resetComment: function resetComment() {
+      this.form.comment = null;
     }
   }
 });
@@ -3573,7 +3590,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-6b4481d3] {\n  margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-6b4481d3] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -3592,7 +3609,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal-mask[data-v-5f7088f2] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-5f7088f2] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-5f7088f2] {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-5f7088f2] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-5f7088f2] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-5f7088f2] {\n  float: right;\n}\n.modal-enter[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-5f7088f2],\n.modal-leave-active .modal-container[data-v-5f7088f2] {\n  transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".modal-mask[data-v-5f7088f2] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-5f7088f2] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-5f7088f2] {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-5f7088f2] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-5f7088f2] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-5f7088f2] {\n  float: right;\n}\n.modal-enter[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-5f7088f2] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-5f7088f2],\r\n.modal-leave-active .modal-container[data-v-5f7088f2] {\n  transform: scale(1.1);\n}\r\n", ""]);
 
 // exports
 
@@ -47208,11 +47225,14 @@ var render = function() {
               : _c(
                   "div",
                   [
-                    _vm._v("Tenes que estar "),
+                    _vm._v("Tenés que estar "),
                     _c(
                       "inertia-link",
-                      { attrs: { href: _vm.route("register") } },
-                      [_vm._v("registrado")]
+                      {
+                        staticClass: "text-purple-600",
+                        attrs: { href: _vm.route("register") }
+                      },
+                      [_vm._v("registradx")]
                     ),
                     _vm._v(" para comentar")
                   ],
@@ -47223,13 +47243,23 @@ var render = function() {
               return _c("div", { staticClass: "comment__box" }, [
                 _c("div", { staticClass: "comment__comment shadow" }, [
                   _c("div", { staticClass: "comment__perfil" }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(comment.user.name) +
-                        " " +
-                        _vm._s(comment.user.score) +
-                        "\n                    "
-                    )
+                    _c("div", { staticClass: "comment__left" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(comment.user.name) +
+                          " " +
+                          _vm._s(comment.user.score) +
+                          "\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "comment__right" }, [
+                      _vm._v(
+                        "\n                           " +
+                          _vm._s(comment.formateado) +
+                          "\n                       "
+                      )
+                    ])
                   ]),
                   _vm._v(
                     "\n                    " +
@@ -61614,8 +61644,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

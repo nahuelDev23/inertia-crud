@@ -26,11 +26,16 @@
 
                     </template>
                 </FormCommentComponent>
-                <div v-else>Tenes que estar <inertia-link :href="route('register')">registrado</inertia-link> para comentar</div>
+                <div v-else>Tenés que estar <inertia-link :href="route('register')" class="text-purple-600">registradx</inertia-link> para comentar</div>
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow">
                         <div class="comment__perfil">
-                            {{comment.user.name}} {{comment.user.score}}
+                            <div class="comment__left">
+                                {{comment.user.name}} {{comment.user.score}}
+                            </div>
+                           <div class="comment__right">
+                               {{comment.formateado}}
+                           </div>
                         </div>
                         {{comment.comment}}
                     </div>
@@ -44,6 +49,7 @@
 import AppLayout from '../../Layouts/AppLayout.vue'
 import FormCommentComponent from "@/Components/FormCommentComponent";
 import LoadingButtonComponent from "@/Components/LoadingButtonComponent";
+import {mapValues} from "lodash";
 
 export default {
     name: "show",
@@ -60,21 +66,27 @@ export default {
     data(){
         return{
             processing:false,
-            id:window.location.pathname.split('/')[2],
             form:{
                 comment:null,
-                post_id:this.post[0].id,
+                post_id:this.route().params.post,
             }
         }
     },
     methods:{
-        /**
-         * Enviar comentario
-         */
         submitComment(){
-            this.$inertia.post(this.route('comment.store'),this.form);
-        }
-    }
+            this.processing = true;
+            this.$inertia.post(this.route('comment.store'),this.form,{
+                    onSuccess:() => {
+                        this.processing = false;
+                        this.resetComment();
+                }
+            })
+        },
+        resetComment(){
+            this.form.comment = null
+        },
+    },
+
 
 }
 </script>
@@ -130,6 +142,8 @@ export default {
             border-radius:4px;
         }
         &__perfil{
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 1rem;
         }
     }

@@ -2,6 +2,7 @@
     <App-Layout>
         <div v-if="$page.flash.success">{{$page.flash.success}}</div>
         <div class="card__container">
+            <!-- hacer paginacion con scroll -->
             <card-component
                 v-for="(post,index) in posts.data"
                 :key="index"
