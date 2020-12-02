@@ -4,7 +4,7 @@
         <div class="card__container">
             <!-- hacer paginacion con scroll -->
             <card-component
-                v-for="(post,index) in posts.data"
+                v-for="(post,index) in list.data"
                 :key="index"
                 :post="post"></card-component>
         </div>
@@ -14,6 +14,8 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import CardComponent from "@/Components/CardComponent";
+import {debounce} from "lodash";
+
 export default {
     props:{
         posts:Object
@@ -21,7 +23,31 @@ export default {
     name: "Home",
     components:{
         AppLayout,
-        CardComponent
+        CardComponent,
+    },
+    data(){
+        return{
+            list: this.posts,
+            page: 0,
+        }
+    },
+    mounted() {
+        /**
+         * ver como era lo de ...response
+         */
+        window.addEventListener('scroll',debounce((e)=>{
+            let pixelFromBottom = document.documentElement.offsetHeight - document.documentElement.scrollTop - window.innerHeight;
+            if(pixelFromBottom < 200){
+                axios.get(this.list.next_page_url)
+                    .then(response => {
+                        console.log(response)
+                        this.list = {
+                            ...response.data,
+                            data: [...this.list.data,...response.data.data]
+                        }
+                    })
+            }
+        },100))
     }
 }
 </script>

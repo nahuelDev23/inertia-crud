@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-       $posts = Post::orderBy('created_at', 'DESC')->with('category','comment')->paginate(100);
+
+       $posts = Post::orderBy('created_at', 'DESC')->with('category','comment')->paginate(9);
        $categories = Category::all();
+        if($request->wantsJson()){
+            return $posts;
+       }
         return Inertia::render('Home',[
             'categories' => $categories,
             'posts' => $posts
