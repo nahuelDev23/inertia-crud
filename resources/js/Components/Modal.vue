@@ -8,6 +8,11 @@
                             <slot name="header">
                                 default header
                             </slot>
+                            <button class="modal-default-button" @click="$emit('close')">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
                         </div>
 
                         <div class="modal-body">
@@ -18,10 +23,7 @@
 
                         <div class="modal-footer">
                             <slot name="footer">
-                                default footer
-                                <button class="modal-default-button" @click="$emit('close')">
-                                    OK
-                                </button>
+
                             </slot>
                         </div>
                     </div>
@@ -37,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -56,16 +58,25 @@ export default {
 }
 
 .modal-container {
-    width: 300px;
+    width: 80vw;
     margin: 0px auto;
     padding: 20px 30px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
-}
 
+    @media (min-width: 768px) {
+        width: 40vw;
+
+    }
+}
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .modal-header h3 {
     margin-top: 0;
     color: #42b983;
@@ -77,6 +88,9 @@ export default {
 
 .modal-default-button {
     float: right;
+    & > svg{
+        width: 1.5rem;
+    }
 }
 
 .modal-enter {

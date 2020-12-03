@@ -28,7 +28,6 @@ class StorePost extends FormRequest
             'body' => ['required','min:6 '],
             'description' => ['required', 'max:100'],
             'category_id' => ['required'],
-            'is_anon' => ['required'],
             'image' => ['max:1000'],
         ];
     }
@@ -43,7 +42,7 @@ class StorePost extends FormRequest
             'body.min' => 'Tu mansaje no puede contener menos de 6 caracteres',
             'description.required' => 'Tenés que escribir algo',
             'description.max' => 'La descripcion no puede contener mas de 100 caracteres',
-            'category.required' => 'Tenés que elegir una categoria valida',
+            'category_id.required' => 'Tenés que elegir una categoria valida',
             'is_anon.max' => 'Que intentaste hacer?',
             'is_anon.requird'=>'El post es anonimo si o no?',
             'image.max' => 'La URL de la imagen es muy grande',

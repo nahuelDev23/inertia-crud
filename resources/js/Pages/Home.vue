@@ -40,7 +40,6 @@ export default {
             if(pixelFromBottom < 200){
                 axios.get(this.list.next_page_url)
                     .then(response => {
-                        console.log(response)
                         this.list = {
                             ...response.data,
                             data: [...this.list.data,...response.data.data]

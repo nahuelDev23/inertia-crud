@@ -15,7 +15,7 @@ class HomeController extends Controller
        $categories = Category::all();
         if($request->wantsJson()){
             return $posts;
-       }
+        }
         return Inertia::render('Home',[
             'categories' => $categories,
             'posts' => $posts

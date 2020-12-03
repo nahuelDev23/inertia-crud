@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComment;
 use App\Models\Comments;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use Inertia\Inertia;
 
 class CommentsController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreComment $request)
     {
         /**
          * hacer validaciones

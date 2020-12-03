@@ -92,7 +92,7 @@ import {debounce, mapValues, pickBy} from "lodash";
                     description:null,
                     body:null,
                     image:null,
-                    is_anon:0,
+                    is_anon:false,
                     category_id:null,
                 }
             }
@@ -100,12 +100,19 @@ import {debounce, mapValues, pickBy} from "lodash";
         methods:{
             submitPost(){
                 this.processing = true
-                this.$inertia.post(this.route('post.store'),this.form)
-                .then(()=>{
-                    this.processing = false
-                    this.showModal = false
-                    this.reset()
+                this.$inertia.post(this.route('post.store'),this.form,{
+                    onSuccess:(res)=>{
+                        if(Object.keys(res.props.errors).length == 0){
+                            this.processing = false
+                            this.showModal = false
+                            this.reset()
+                        }else{
+                            this.processing = false
+                        }
+                    },
+
                 })
+
             },
             reset(){
                 this.form = mapValues(this.form,()=> null);
@@ -141,6 +148,11 @@ import {debounce, mapValues, pickBy} from "lodash";
     //@media (min-width: 1024px) { /* ... */ }
     ///* xl */
     //@media (min-width: 1280px) { /* ... */ }
+.alert-danger{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
     .hover-menu:hover{
         background-color: rgba(0,0,0,.4);
     }
@@ -202,4 +214,7 @@ import {debounce, mapValues, pickBy} from "lodash";
         background-color: rgba(0,0,0,.4);
     }
 
+.form{
+    background-color: red;
+}
 </style>

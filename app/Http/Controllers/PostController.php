@@ -40,6 +40,9 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
+        /**
+         * hacer que acepte tags html
+         */
         $post = Post::create($request->all());
         event(new increaseScoreEvent());
         return redirect()->route('post.show',$post);
@@ -53,9 +56,15 @@ class PostController extends Controller
      */
     public function show($id)
     {
-       $post = Post::with('comment')->where('id',$id)->get();
+        /**
+         * paginar comentarios
+         */
+       $post = Post::where('id',$id)->get();
        $categories = Category::all();
-       $comments = Comments::where('post_id',$id)->with('user')->orderBy('created_at','DESC')->get();
+       $comments = Comments::where('post_id',$id)
+           ->with('user')
+           ->orderBy('created_at','DESC')
+           ->get();
 
         return Inertia::render('post/show',[
             'post' => $post,

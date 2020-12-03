@@ -19,14 +19,12 @@
                             :loading="processing"
                             class="btn-indigo mt-2"
                             type="submit"
-
                         >
                             Comentar
                         </loading-button-component>
-
                     </template>
                 </FormCommentComponent>
-                <div v-else>Tenés que estar <inertia-link :href="route('register')" class="text-purple-600">registradx</inertia-link> para comentar</div>
+                <div v-else>Tenés que estar <inertia-link :href="route('login')" class="text-purple-600">logeadx</inertia-link> para comentar</div>
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow">
                         <div class="comment__perfil">
