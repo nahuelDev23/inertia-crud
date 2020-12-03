@@ -47311,7 +47311,10 @@ var render = function() {
                 _vm._v(_vm._s(p.title))
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "post__body" }, [_vm._v(_vm._s(p.body))])
+              _c("div", {
+                staticClass: "post__body",
+                domProps: { innerHTML: _vm._s(p.body) }
+              })
             ])
           ])
         }),

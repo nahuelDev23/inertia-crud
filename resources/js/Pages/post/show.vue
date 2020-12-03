@@ -9,7 +9,7 @@
                 </div>
                 <div class="post__mid">
                     <div class="post__title">{{p.title}}</div>
-                    <div class="post__body">{{p.body}}</div>
+                    <div class="post__body" v-html="p.body"></div>
                 </div>
             </div>
             <div class="comment">

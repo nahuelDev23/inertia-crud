@@ -41,8 +41,14 @@ class PostController extends Controller
     public function store(StorePost $request)
     {
         /**
-         * hacer que acepte tags html
+         * hacer que acepte tags html lo hago al final con ck editor
+         * hacer que sume puntos cuando el post tenga mas de 10 comentarios
+         * hacer boton editar 500 puntos
+         * hacer boton borrar 1000 puntos
+         * hacer comentario anonimo con 1500
+         * agregar ckeditor
          */
+
         $post = Post::create($request->all());
         event(new increaseScoreEvent());
         return redirect()->route('post.show',$post);
