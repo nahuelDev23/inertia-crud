@@ -1,6 +1,6 @@
 <template>
     <App-Layout>
-        <form-post-component  @send-post="updatePost"  :categories=$page.categories :form="form">
+        <form-post-component class="bg-blue max-width-edit m-auto" @send-post="updatePost"  :categories=$page.categories :form="form">
             <template #buttons>
                 <loading-button-component
                     :loading="processing"
@@ -58,6 +58,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.max-width-edit{
+    max-width: 80vw;
+    @media (min-width: 768px) {
+        max-width: 60vw;
+    }
+    @media (min-width: 1024px) {
+        max-width: 40vw;
+    }
+}
 .show__container{
     display: grid;
     grid-template-columns:repeat(1,1fr);

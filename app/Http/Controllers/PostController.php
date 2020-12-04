@@ -43,7 +43,7 @@ class PostController extends Controller
         /**
          * hacer que acepte tags html lo hago al final con ck editor
          * hacer que sume puntos cuando el post tenga mas de 10 comentarios
-         * hacer boton editar 500 puntos
+         * hacer boton editar 500 puntos -- ok
          * hacer boton borrar 1000 puntos
          * hacer comentario anonimo con 1500
          * agregar ckeditor

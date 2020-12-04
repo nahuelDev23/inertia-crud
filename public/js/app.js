@@ -2021,6 +2021,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2311,7 +2312,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
-      this.$inertia.post(this.route('Home'));
+      this.$inertia.post(this.route('logout'));
     }
   }
 });
@@ -3372,6 +3373,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3393,6 +3398,7 @@ __webpack_require__.r(__webpack_exports__);
       processing: false,
       form: {
         comment: null,
+        is_anon: null,
         post_id: this.route().params.post
       }
     };
@@ -3412,6 +3418,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     resetComment: function resetComment() {
       this.form.comment = null;
+      this.form.is_anon = null;
     }
   }
 });
@@ -3753,7 +3760,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".show__container[data-v-42187340] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-42187340] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-42187340] {\n  height: 40vh;\n}\n.post__image[data-v-42187340] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-42187340] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-42187340] {\n  margin: 0 1rem;\n}\n.post__title[data-v-42187340] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-42187340] {\n  text-align: justify;\n}\n.comment[data-v-42187340] {\n  text-align: center;\n}\n.comment__comment[data-v-42187340] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-42187340] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, ".max-width-edit[data-v-42187340] {\n  max-width: 80vw;\n}\n@media (min-width: 768px) {\n.max-width-edit[data-v-42187340] {\n    max-width: 60vw;\n}\n}\n@media (min-width: 1024px) {\n.max-width-edit[data-v-42187340] {\n    max-width: 40vw;\n}\n}\n.show__container[data-v-42187340] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-42187340] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-42187340] {\n  height: 40vh;\n}\n.post__image[data-v-42187340] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-42187340] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-42187340] {\n  margin: 0 1rem;\n}\n.post__title[data-v-42187340] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-42187340] {\n  text-align: justify;\n}\n.comment[data-v-42187340] {\n  text-align: center;\n}\n.comment__comment[data-v-42187340] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-42187340] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -3772,7 +3779,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-6b4481d3] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, ".show__container[data-v-6b4481d3] {\n  display: grid;\n  grid-template-columns: repeat(1, 1fr);\n  grid-gap: 1rem;\n}\n@media (min-width: 640px) {\n.show__container[data-v-6b4481d3] {\n    margin-top: 1rem;\n    grid-template-columns: repeat(2, 1fr);\n}\n}\n.post__top[data-v-6b4481d3] {\n  height: 40vh;\n}\n.post__image[data-v-6b4481d3] {\n  background-color: var(--primary-color);\n  height: 100%;\n}\n.post__image > img[data-v-6b4481d3] {\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-height: 100%;\n  min-height: 100%;\n  width: 100%;\n}\n.post__mid[data-v-6b4481d3] {\n  margin: 0 1rem;\n}\n.post__title[data-v-6b4481d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 1.3rem;\n  color: rgba(0, 0, 0, 0.8);\n}\n.post__body[data-v-6b4481d3] {\n  text-align: justify;\n}\n.comment[data-v-6b4481d3] {\n  text-align: center;\n}\n.comment__comment[data-v-6b4481d3] {\n  background-color: rgba(255, 255, 255, 0.6);\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n  padding: 1rem;\n  text-align: justify;\n  border-radius: 4px;\n}\n.comment__perfil[data-v-6b4481d3] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1rem;\n}\n.comment__anon[data-v-6b4481d3] {\n  color: var(--text-color);\n  background-color: var(--primary-color);\n}\n", ""]);
 
 // exports
 
@@ -45538,7 +45545,59 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-end" }, [_vm._t("buttons")], 2)
+        _c(
+          "div",
+          { staticClass: "flex justify-between items-center" },
+          [
+            _c("span", { staticClass: "ml-2 text-gray-700" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.is_anon,
+                    expression: "form.is_anon"
+                  }
+                ],
+                staticClass: "form-checkbox h-5 w-5 text-gray-600 mr-2 ",
+                attrs: { type: "checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.form.is_anon)
+                    ? _vm._i(_vm.form.is_anon, null) > -1
+                    : _vm.form.is_anon
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.form.is_anon,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(_vm.form, "is_anon", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.form,
+                            "is_anon",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.form, "is_anon", $$c)
+                    }
+                  }
+                }
+              }),
+              _vm._v("Comentar como anonimo")
+            ]),
+            _vm._v(" "),
+            _vm._t("buttons")
+          ],
+          2
+        )
       ])
     ]
   )
@@ -47417,6 +47476,7 @@ var render = function() {
     "App-Layout",
     [
       _c("form-post-component", {
+        staticClass: "bg-blue max-width-edit m-auto",
         attrs: { categories: _vm.$page.categories, form: _vm.form },
         on: { "send-post": _vm.updatePost },
         scopedSlots: _vm._u([
@@ -47464,114 +47524,139 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "App-Layout",
-    [
-      _vm.$page.user.id == _vm.$page.post[0].user_id &&
-      _vm.$page.user.score >= 500
-        ? _c(
-            "inertia-link",
-            { attrs: { href: _vm.route("post.edit", _vm.$page.post[0].id) } },
-            [_vm._v("Editar")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "show__container" },
-        [
-          _vm._l(_vm.post, function(p) {
-            return _c("div", { staticClass: "post" }, [
-              p.image
-                ? _c("div", { staticClass: "post__top" }, [
-                    _c("div", { staticClass: "post__image" }, [
-                      _c("img", { attrs: { src: p.image, alt: "" } })
-                    ])
+  return _c("App-Layout", [
+    _vm.$page.user
+      ? _c(
+          "div",
+          [
+            _vm.$page.user.id == _vm.$page.post[0].user_id &&
+            _vm.$page.user.score >= 500
+              ? _c(
+                  "inertia-link",
+                  {
+                    attrs: {
+                      href: _vm.route("post.edit", _vm.$page.post[0].id)
+                    }
+                  },
+                  [_vm._v("Editar")]
+                )
+              : _vm._e()
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "show__container" },
+      [
+        _vm._l(_vm.post, function(p) {
+          return _c("div", { staticClass: "post" }, [
+            p.image
+              ? _c("div", { staticClass: "post__top" }, [
+                  _c("div", { staticClass: "post__image" }, [
+                    _c("img", { attrs: { src: p.image, alt: "" } })
                   ])
-                : _vm._e(),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "post__mid" }, [
+              _c("div", { staticClass: "post__title" }, [
+                _vm._v(_vm._s(p.title))
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "post__mid" }, [
-                _c("div", { staticClass: "post__title" }, [
-                  _vm._v(_vm._s(p.title))
-                ]),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "post__body",
-                  domProps: { innerHTML: _vm._s(p.body) }
-                })
-              ])
+              _c("div", {
+                staticClass: "post__body",
+                domProps: { innerHTML: _vm._s(p.body) }
+              })
             ])
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "comment" },
-            [
-              _vm.$page.user
-                ? _c("FormCommentComponent", {
-                    attrs: { form: _vm.form },
-                    on: { "send-comment": _vm.submitComment },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "buttons",
-                          fn: function() {
-                            return [
-                              _c(
-                                "loading-button-component",
-                                {
-                                  staticClass: "btn-indigo mt-2",
-                                  attrs: {
-                                    loading: _vm.processing,
-                                    type: "submit"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Comentar\n                    "
-                                  )
-                                ]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ],
-                      null,
-                      false,
-                      177714839
-                    )
-                  })
-                : _c(
-                    "div",
+          ])
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "comment" },
+          [
+            _vm.$page.user
+              ? _c("FormCommentComponent", {
+                  attrs: { form: _vm.form },
+                  on: { "send-comment": _vm.submitComment },
+                  scopedSlots: _vm._u(
                     [
-                      _vm._v("Tenés que estar "),
-                      _c(
-                        "inertia-link",
-                        {
-                          staticClass: "text-purple-600",
-                          attrs: { href: _vm.route("login") }
+                      {
+                        key: "buttons",
+                        fn: function() {
+                          return [
+                            _c(
+                              "loading-button-component",
+                              {
+                                staticClass: "btn-indigo mt-2",
+                                attrs: {
+                                  loading: _vm.processing,
+                                  type: "submit"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Comentar\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(_vm.form.is_anon) +
+                                "\n                "
+                            )
+                          ]
                         },
-                        [_vm._v("logeadx")]
-                      ),
-                      _vm._v(" para comentar")
+                        proxy: true
+                      }
                     ],
-                    1
-                  ),
-              _vm._v(" "),
-              _vm._l(_vm.comments, function(comment) {
-                return _c("div", { staticClass: "comment__box" }, [
-                  _c("div", { staticClass: "comment__comment shadow" }, [
+                    null,
+                    false,
+                    2744034477
+                  )
+                })
+              : _c(
+                  "div",
+                  [
+                    _vm._v("Tenés que estar "),
+                    _c(
+                      "inertia-link",
+                      {
+                        staticClass: "text-purple-600",
+                        attrs: { href: _vm.route("login") }
+                      },
+                      [_vm._v("logeadx")]
+                    ),
+                    _vm._v(" para comentar")
+                  ],
+                  1
+                ),
+            _vm._v(" "),
+            _vm._l(_vm.comments, function(comment) {
+              return _c("div", { staticClass: "comment__box" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "comment__comment shadow",
+                    class: comment.is_anon ? "comment__anon" : ""
+                  },
+                  [
                     _c("div", { staticClass: "comment__perfil" }, [
-                      _c("div", { staticClass: "comment__left" }, [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(comment.user.name) +
-                            " " +
-                            _vm._s(comment.user.score) +
-                            "\n                        "
-                        )
-                      ]),
+                      !comment.is_anon
+                        ? _c("div", { staticClass: "comment__left" }, [
+                            _c("span", [_vm._v(_vm._s(comment.user.name))]),
+                            _vm._v(" "),
+                            _vm.$page.user.id == _vm.$page.post[0].user_id
+                              ? _c(
+                                  "span",
+                                  { staticClass: "alert-danger p-1" },
+                                  [_vm._v("Autor")]
+                                )
+                              : _vm._e()
+                          ])
+                        : _c("div", [_vm._v("Anonimo")]),
                       _vm._v(" "),
                       _c("div", { staticClass: "comment__right" }, [
                         _vm._v(
@@ -47586,18 +47671,17 @@ var render = function() {
                         _vm._s(comment.comment) +
                         "\n                "
                     )
-                  ])
-                ])
-              })
-            ],
-            2
-          )
-        ],
-        2
-      )
-    ],
-    1
-  )
+                  ]
+                )
+              ])
+            })
+          ],
+          2
+        )
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

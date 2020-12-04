@@ -11,6 +11,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('comment');
+            $table->integer('is_anon')->nullable()->default(0);
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('post_id')->unsigned();
             $table->string('image')->nullable();

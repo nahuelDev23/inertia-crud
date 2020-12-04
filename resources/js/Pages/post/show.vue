@@ -1,8 +1,9 @@
 <template>
     <App-Layout>
-        <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
-        <div class="show__container">
-
+        <div v-if="$page.user">
+            <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
+        </div>
+            <div class="show__container">
             <div class="post" v-for="p in post">
                 <div class="post__top" v-if="p.image">
                     <div class="post__image" >
@@ -24,15 +25,18 @@
                         >
                             Comentar
                         </loading-button-component>
+                        {{form.is_anon}}
                     </template>
                 </FormCommentComponent>
                 <div v-else>Tenés que estar <inertia-link :href="route('login')" class="text-purple-600">logeadx</inertia-link> para comentar</div>
                 <div class="comment__box" v-for="comment in comments">
-                    <div class="comment__comment shadow">
+                    <div class="comment__comment shadow" :class="comment.is_anon ? 'comment__anon' : '' ">
                         <div class="comment__perfil">
-                            <div class="comment__left">
-                                {{comment.user.name}} {{comment.user.score}}
+                            <div class="comment__left" v-if="!comment.is_anon">
+                                <span >{{comment.user.name}}</span>
+                                <span class="alert-danger p-1" v-if="$page.user.id == $page.post[0].user_id">Autor</span>
                             </div>
+                            <div v-else>Anonimo</div>
                            <div class="comment__right">
                                {{comment.formateado}}
                            </div>
@@ -68,6 +72,7 @@ export default {
             processing:false,
             form:{
                 comment:null,
+                is_anon:null,
                 post_id:this.route().params.post,
             }
         }
@@ -84,6 +89,7 @@ export default {
         },
         resetComment(){
             this.form.comment = null
+            this.form.is_anon = null
         },
     },
 
@@ -133,6 +139,7 @@ export default {
 
     .comment{
         text-align: center;
+
         &__comment{
             background-color: rgba(255,255,255,.6);
             margin-bottom: 1rem;
@@ -145,6 +152,10 @@ export default {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
+        }
+        &__anon{
+            color:var(--text-color);
+            background-color: var(--primary-color);
         }
     }
 </style>
