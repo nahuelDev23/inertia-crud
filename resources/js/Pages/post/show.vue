@@ -25,14 +25,13 @@
                         >
                             Comentar
                         </loading-button-component>
-                        {{form.is_anon}}
                     </template>
                 </FormCommentComponent>
                 <div v-else>Tenés que estar <inertia-link :href="route('login')" class="text-purple-600">logeadx</inertia-link> para comentar</div>
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow" :class="comment.is_anon ? 'comment__anon' : '' ">
                         <div class="comment__perfil">
-                            <div class="comment__left" v-if="!comment.is_anon">
+                            <div class="comment__left" v-if="!comment.is_anon && $page.user">
                                 <span >{{comment.user.name}}</span>
                                 <span class="alert-danger p-1" v-if="$page.user.id == $page.post[0].user_id">Autor</span>
                             </div>
@@ -72,7 +71,6 @@ export default {
             processing:false,
             form:{
                 comment:null,
-                is_anon:null,
                 post_id:this.route().params.post,
             }
         }

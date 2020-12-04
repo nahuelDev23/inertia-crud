@@ -44,7 +44,7 @@ class StorePost extends FormRequest
             'description.max' => 'La descripcion no puede contener mas de 100 caracteres',
             'category_id.required' => 'Tenés que elegir una categoria valida',
             'is_anon.max' => 'Que intentaste hacer?',
-            'is_anon.requird'=>'El post es anonimo si o no?',
+            'is_anon.required'=>'El post es anonimo si o no?',
             'image.max' => 'La URL de la imagen es muy grande',
         ];
     }

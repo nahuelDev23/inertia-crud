@@ -3376,7 +3376,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -3398,7 +3397,6 @@ __webpack_require__.r(__webpack_exports__);
       processing: false,
       form: {
         comment: null,
-        is_anon: null,
         post_id: this.route().params.post
       }
     };
@@ -47601,11 +47599,6 @@ var render = function() {
                                   "\n                        Comentar\n                    "
                                 )
                               ]
-                            ),
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(_vm.form.is_anon) +
-                                "\n                "
                             )
                           ]
                         },
@@ -47614,7 +47607,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    2744034477
+                    177714839
                   )
                 })
               : _c(
@@ -47644,7 +47637,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "comment__perfil" }, [
-                      !comment.is_anon
+                      !comment.is_anon && _vm.$page.user
                         ? _c("div", { staticClass: "comment__left" }, [
                             _c("span", [_vm._v(_vm._s(comment.user.name))]),
                             _vm._v(" "),

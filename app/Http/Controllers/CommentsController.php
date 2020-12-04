@@ -12,9 +12,16 @@ class CommentsController extends Controller
     public function store(StoreComment $request)
     {
         /**
-         * todo hacer que ande is_anon
+         * hacer validaciones
          */
-        Comments::create($request->all());
+        //Comments::create($request->all());
+        $comment = [
+            'comment' => $request->comment,
+            'post_id' => $request->post_id,
+
+        ];
+
+        Comments::create($comment);
         /**
          * todo ver si hay otra manera de responder con un json
          */
