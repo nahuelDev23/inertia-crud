@@ -3376,6 +3376,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -3397,6 +3399,7 @@ __webpack_require__.r(__webpack_exports__);
       processing: false,
       form: {
         comment: null,
+        is_anon: false,
         post_id: this.route().params.post
       }
     };

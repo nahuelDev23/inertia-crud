@@ -4,6 +4,7 @@
             <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
         </div>
             <div class="show__container">
+
             <div class="post" v-for="p in post">
                 <div class="post__top" v-if="p.image">
                     <div class="post__image" >
@@ -15,6 +16,7 @@
                     <div class="post__body" v-html="p.body"></div>
                 </div>
             </div>
+
             <div class="comment">
                 <FormCommentComponent @send-comment="submitComment" :form="form" v-if="$page.user">
                     <template #buttons>
@@ -71,6 +73,7 @@ export default {
             processing:false,
             form:{
                 comment:null,
+                is_anon:false,
                 post_id:this.route().params.post,
             }
         }
@@ -81,7 +84,7 @@ export default {
             this.$inertia.post(this.route('comment.store'),this.form,{
                     onSuccess:() => {
                         this.processing = false;
-                        this.resetComment();
+                       this.resetComment();
                 }
             })
         },

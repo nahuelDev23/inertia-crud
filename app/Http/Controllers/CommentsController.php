@@ -11,17 +11,13 @@ class CommentsController extends Controller
 {
     public function store(StoreComment $request)
     {
-        /**
-         * hacer validaciones
-         */
-        //Comments::create($request->all());
-        $comment = [
-            'comment' => $request->comment,
-            'post_id' => $request->post_id,
 
-        ];
+        $comment = new Comments();
+        $comment->comment =  $request->comment;
+        $comment->is_anon = $request->is_anon;
+        $comment->post_id = $request->post_id;
+        $comment->save();
 
-        Comments::create($comment);
         /**
          * todo ver si hay otra manera de responder con un json
          */
