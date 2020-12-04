@@ -85,9 +85,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return Inertia::render('post/edit',[
+            'post' =>[
+                'id' => $post->id,
+                'title' => $post->title,
+                'description' => $post->description,
+                'body' => $post->body,
+                'image' => $post->image,
+                'category_id'=>$post->category_id,
+                'is_anon' => $post->is_anon,
+            ],
+            'categories'=>$categories,
+        ]);
     }
 
     /**
@@ -97,9 +109,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePost $request,Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect()->route('post.show',$post);
     }
 
     /**

@@ -1,6 +1,8 @@
 <template>
     <App-Layout>
+        <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
         <div class="show__container">
+
             <div class="post" v-for="p in post">
                 <div class="post__top" v-if="p.image">
                     <div class="post__image" >
