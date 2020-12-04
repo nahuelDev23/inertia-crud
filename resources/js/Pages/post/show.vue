@@ -33,7 +33,7 @@
                         <div class="comment__perfil">
                             <div class="comment__left" v-if="!comment.is_anon && $page.user">
                                 <span >{{comment.user.name}}</span>
-                                <span class="alert-danger p-1" v-if="$page.user.id == $page.post[0].user_id">Autor</span>
+                                <span class="alert-danger p-1" v-if="$page.user.id == $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
                             </div>
                             <div v-else>Anonimo</div>
                            <div class="comment__right">

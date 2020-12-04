@@ -47641,7 +47641,8 @@ var render = function() {
                         ? _c("div", { staticClass: "comment__left" }, [
                             _c("span", [_vm._v(_vm._s(comment.user.name))]),
                             _vm._v(" "),
-                            _vm.$page.user.id == _vm.$page.post[0].user_id
+                            _vm.$page.user.id == _vm.$page.post[0].user_id &&
+                            !_vm.$page.post[0].is_anon
                               ? _c(
                                   "span",
                                   { staticClass: "alert-danger p-1" },
