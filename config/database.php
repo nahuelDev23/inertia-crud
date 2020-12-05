@@ -32,7 +32,6 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
     'connections' => [
 
         'sqlite' => [
@@ -42,15 +41,16 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
+        mysql://befe89f3d47a19:4bcc5e29@us-cdbr-east-02.cleardb.com/heroku_be54870519a3c68?reconnect=true
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'url' => env('DATABASE_URL','mysql://befe89f3d47a19:4bcc5e29@us-cdbr-east-02.cleardb.com/heroku_be54870519a3c68?reconnect=true'),
+            'host' => env('DB_HOST', 'us-cdbr-east-02.cleardb.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'heroku_be54870519a3c68'),
+            'username' => env('DB_USERNAME', 'befe89f3d47a19'),
+            'password' => env('DB_PASSWORD', '4bcc5e29'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
