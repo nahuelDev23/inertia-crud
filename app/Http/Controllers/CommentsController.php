@@ -21,7 +21,7 @@ class CommentsController extends Controller
         $countCommentPost = Comments::select('post_id')->where('post_id',$request->post_id)->whereNotIn('user_id',[$request->user_id_del_post])->count();
 
         $comment = new Comments();
-        $comment->comment = $request->comment;
+        $comment->comment = nl2br($request->comment);
         $comment->is_anon = $request->is_anon;
         $comment->post_id = $request->post_id;
         $comment->save();

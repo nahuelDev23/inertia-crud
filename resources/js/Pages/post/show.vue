@@ -1,16 +1,17 @@
 <template>
     <App-Layout>
-        <div v-if="$page.user">
-            <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
-            <button @click="deletePost($page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Eliminar</button>
-        </div>
             <div class="show__container">
             <div class="post" v-for="p in post">
+                <div v-if="$page.user" class="text-center mt-4 mb-4 sm:mt-0">
+                    <inertia-link class="mr-4 bg-green-100 rounded px-4 py-1 shadow" :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
+                    <button class=" bg-pink-300 rounded px-4 shadow"  @click="deletePost($page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 1000 ">Eliminar</button>
+                </div>
                 <div class="post__top" v-if="p.image">
                     <div class="post__image" >
                         <img :src="p.image" alt="">
                     </div>
                 </div>
+
                 <div class="post__mid">
                     <div class="post__title">{{p.title}}</div>
                     <div class="post__by mb-4 flex justify-center">Por <span class="ml-4 text-green-600 bold" >{{p.user.name}}</span></div>
@@ -37,14 +38,14 @@
                             <div class="comment__left" v-if="!comment.is_anon && $page.user">
                                 <span >{{comment.user.name}}</span>
                                 <span class="alert-danger p-1" v-if="comment.user_id== $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
-                                <span v-else>efe</span>
+                                <span v-else></span>
                             </div>
                             <div v-else>Anonimo</div>
                            <div class="comment__right">
                                {{comment.formateado}}
                            </div>
                         </div>
-                        {{comment.comment}}
+                        <div v-html="comment.comment"></div>
                     </div>
                 </div>
             </div>

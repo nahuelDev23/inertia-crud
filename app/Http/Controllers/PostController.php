@@ -40,16 +40,16 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
-        /**
-         * hacer que acepte tags html lo hago al final con ck editor
-         * hacer que sume puntos cuando el post tenga mas de 10 comentarios - ok
-         * hacer boton editar 500 puntos -- ok
-         * hacer boton borrar 1000 puntos
-         * hacer comentario anonimo con 1500
-         * agregar ckeditor
-         */
+        $data = [
+            'title' => $request->title,
+            'body' => nl2br($request->body),
+            'description' => $request->description,
+            'image' => $request->image,
+            'is_anon' => $request->is_anon,
+            'category_id' => $request->category_id,
 
-        $post = Post::create($request->all());
+        ];
+        $post = Post::create($data);
         event(new increaseScoreEvent(50));
         return redirect()->route('post.show',$post);
     }
