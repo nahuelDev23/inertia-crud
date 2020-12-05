@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.googlemail.com'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('nahuel.dev.bot@gmail.com'),
-            'password' => env('toiccjvzflfeisnz'),
+            'host' => 'smtp.googlemail.com',
+            'port' => 587,
+            'encryption' => 'MAIL_ENCRYPTION', 'tls',
+            'username' => 'nahuel.dev.bot@gmail.com',
+            'password' => 'toiccjvzflfeisnz',
             'timeout' => null,
             'auth_mode' => null,
         ],
