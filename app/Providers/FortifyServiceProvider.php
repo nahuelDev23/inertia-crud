@@ -49,13 +49,23 @@ class FortifyServiceProvider extends ServiceProvider
             ])->toResponse(request());
         });
         Fortify::requestPasswordResetLinkView(function(Request $request){
-            return Inertia::render('password/forgot-password')->toResponse($request);
+            $categories = Category::all();
+            return Inertia::render('password/forgot-password',[
+                'categories' => $categories
+            ])->toResponse($request);
         });
         Fortify::resetPasswordView(function(Request $request){
-            return Inertia::render('password/reset-password',['request'=>$request])->toResponse($request);
+            $categories = Category::all();
+            return Inertia::render('password/reset-password',[
+                'request'=>$request,
+                'categories' => $categories
+            ])->toResponse($request);
         });
         Fortify::verifyEmailView(function (){
-            return Inertia::render('password/VerifyEmail')->toResponse(request());
+            $categories = Category::all();
+            return Inertia::render('password/VerifyEmail',[
+                'categories' => $categories
+            ])->toResponse(request());
         });
 
     }
