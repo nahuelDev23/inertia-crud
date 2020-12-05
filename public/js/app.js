@@ -3084,6 +3084,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/LoadingButtonComponent */ "./resources/js/Components/LoadingButtonComponent.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3107,22 +3114,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "VerifyEmail",
   props: {
     errors: Object
   },
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    LoadingButtonComponent: _Components_LoadingButtonComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
+      processing: false,
       open: true
     };
   },
   methods: {
     sendVerificationEmail: function sendVerificationEmail() {
-      this.$inertia.post(this.route('verification.send')).then(function () {});
+      var _this = this;
+
+      this.processing = true;
+      this.$inertia.post(this.route('verification.send')).then(function () {
+        _this.processing = false;
+      });
     }
   }
 });
@@ -3551,7 +3566,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.alert-danger {\n  color: #721c24;\n  background-color: #f8d7da;\n  border-color: #f5c6cb;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\n             * A PARTIR DE 600 SE MUESTRA\n             */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.form {\n  background-color: red;\n}\n", ""]);
+exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.secondary-color {\n  color: var(--secondary-color);\n}\n.alert-danger {\n  color: #721c24;\n  background-color: #f8d7da;\n  border-color: #f5c6cb;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\n             * A PARTIR DE 600 SE MUESTRA\n             */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.form {\n  background-color: red;\n}\n", ""]);
 
 // exports
 
@@ -46321,7 +46336,7 @@ var render = function() {
                       "inertia-link",
                       {
                         class: _vm.route().current("register")
-                          ? "active_link"
+                          ? "secondary-color"
                           : "",
                         attrs: { href: _vm.route("register") }
                       },
@@ -46341,7 +46356,7 @@ var render = function() {
                       "inertia-link",
                       {
                         class: _vm.route().current("login")
-                          ? "active_link"
+                          ? "secondary-color"
                           : "",
                         attrs: { href: _vm.route("login") }
                       },
@@ -47394,63 +47409,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "app-Layout",
-    [
-      _c("h1", [_vm._v("ENVIAR EMAIL DE VALIDACION")]),
-      _vm._v(" "),
-      _vm._l(_vm.errors, function(erro, index) {
-        return _c("div", { key: index }, [
-          _vm._v("\n        " + _vm._s(erro) + "\n    ")
-        ])
-      }),
-      _vm._v(" "),
-      _vm.$page.flash.status && _vm.open
-        ? _c("div", [
-            _vm._v("\n        Se envio un email\n        "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    _vm.open = false
-                  }
-                }
-              },
-              [_vm._v("x")]
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.sendVerificationEmail($event)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "form-group row mb-0" }, [
-            _c("div", { staticClass: "col-md-6 offset-md-4" }, [
+  return _c("app-Layout", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8"
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "max-w-md w-full space-y-8" },
+          [
+            _c("div", [
               _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                "h3",
+                {
+                  staticClass:
+                    "mt-6 text-center text-3xl font-extrabold text-gray-900"
+                },
                 [
                   _vm._v(
-                    "\n                    enviar mail para resetear\n                "
+                    "\n                    Te enviamos a tu mail un link de validacion, asi podes acceder a todo el contenido de la web\n                "
                   )
                 ]
               )
-            ])
-          ])
-        ]
-      )
-    ],
-    2
-  )
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.errors, function(erro, index) {
+              return _c("div", { key: index, staticClass: "push-error" }, [
+                _vm._v("\n                " + _vm._s(erro) + "\n            ")
+              ])
+            }),
+            _vm._v(" "),
+            _vm.$page.flash.status && _vm.open
+              ? _c("div", [
+                  _vm._v("\n        Se envio un email\n        "),
+                  _c(
+                    "button",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.open = false
+                        }
+                      }
+                    },
+                    [_vm._v("x")]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.sendVerificationEmail($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "loading-button-component",
+                  {
+                    staticClass: "btn-indigo w-full justify-center",
+                    attrs: { loading: _vm.processing, type: "submit" }
+                  },
+                  [_vm._v(" Enviar email de validacion")]
+                )
+              ],
+              1
+            )
+          ],
+          2
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

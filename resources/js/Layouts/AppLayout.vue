@@ -26,11 +26,11 @@
                     </div>
                     <li class="header__item" v-if="!$page.user">
                         <inertia-link  :href="route('register')"
-                         :class="route().current('register') ? 'active_link' : ''">Register</inertia-link>
+                         :class="route().current('register') ? 'secondary-color' : ''">Register</inertia-link>
                     </li>
                     <li class="header__item" v-if="!$page.user">
                         <inertia-link :href="route('login')"
-                         :class="route().current('login') ? 'active_link' : ''">Login</inertia-link>
+                         :class="route().current('login') ? 'secondary-color' : ''">Login</inertia-link>
                     </li>
                 </ul>
                 <div class="header__user">
@@ -148,6 +148,9 @@ import {debounce, mapValues, pickBy} from "lodash";
     //@media (min-width: 1024px) { /* ... */ }
     ///* xl */
     //@media (min-width: 1280px) { /* ... */ }
+.secondary-color{
+    color:var(--secondary-color);
+}
 .alert-danger{
     color: #721c24;
     background-color: #f8d7da;

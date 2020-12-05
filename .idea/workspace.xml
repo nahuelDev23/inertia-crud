@@ -24,9 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e50e1bd4-6e60-4fd7-9541-516121a2bb21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/LoadingButtonComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/LoadingButtonComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/password/forgot-password.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/password/forgot-password.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/password/VerifyEmail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/password/VerifyEmail.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +229,7 @@
       <workItem from="1606828510310" duration="4538000" />
       <workItem from="1606996450233" duration="29816000" />
       <workItem from="1607164317397" duration="13731000" />
-      <workItem from="1607194653749" duration="9477000" />
+      <workItem from="1607194653749" duration="10924000" />
     </task>
     <servers />
   </component>
@@ -325,7 +324,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue</url>
-          <line>158</line>
+          <line>161</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
