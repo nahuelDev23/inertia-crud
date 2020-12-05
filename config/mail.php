@@ -38,7 +38,7 @@ return [
             'transport' => 'smtp',
             'host' => 'smtp.googlemail.com',
             'port' => 587,
-            'encryption' => 'MAIL_ENCRYPTION', 'tls',
+            'encryption' => 'tls',
             'username' => 'nahuel.dev.bot@gmail.com',
             'password' => 'toiccjvzflfeisnz',
             'timeout' => null,
