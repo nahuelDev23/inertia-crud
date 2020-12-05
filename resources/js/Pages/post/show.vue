@@ -2,9 +2,9 @@
     <App-Layout>
         <div v-if="$page.user">
             <inertia-link :href="route('post.edit',$page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Editar</inertia-link>
+            <button @click="deletePost($page.post[0].id)" v-if=" $page.user.id == $page.post[0].user_id && $page.user.score >= 500 ">Eliminar</button>
         </div>
             <div class="show__container">
-
             <div class="post" v-for="p in post">
                 <div class="post__top" v-if="p.image">
                     <div class="post__image" >
@@ -13,6 +13,7 @@
                 </div>
                 <div class="post__mid">
                     <div class="post__title">{{p.title}}</div>
+                    <div class="post__by mb-4 flex justify-center">Por <span class="ml-4 text-green-600 bold" >{{p.user.name}}</span></div>
                     <div class="post__body" v-html="p.body"></div>
                 </div>
             </div>
@@ -94,6 +95,9 @@ export default {
             this.form.comment = null
             this.form.is_anon = null
         },
+        deletePost(id){
+            this.$inertia.delete(this.route('post.destroy',id));
+        }
     },
 
 
@@ -111,6 +115,9 @@ export default {
         }
     }
     .post{
+        .bold{
+            font-weight: bold;
+        }
         &__top{
             height: 40vh;
         }

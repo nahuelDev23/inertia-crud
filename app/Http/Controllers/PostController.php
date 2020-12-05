@@ -42,7 +42,7 @@ class PostController extends Controller
     {
         /**
          * hacer que acepte tags html lo hago al final con ck editor
-         * hacer que sume puntos cuando el post tenga mas de 10 comentarios
+         * hacer que sume puntos cuando el post tenga mas de 10 comentarios - ok
          * hacer boton editar 500 puntos -- ok
          * hacer boton borrar 1000 puntos
          * hacer comentario anonimo con 1500
@@ -65,7 +65,7 @@ class PostController extends Controller
         /**
          * paginar comentarios
          */
-       $post = Post::where('id',$id)->get();
+       $post = Post::where('id',$id)->with('user')->get();
        $categories = Category::all();
        $comments = Comments::where('post_id',$id)
            ->with('user')
@@ -119,10 +119,11 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('home');
     }
 }
