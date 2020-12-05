@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\increaseScoreCommentEvent;
+use App\Listeners\increaseScoreCommentListener;
 use Illuminate\Auth\Events\Registered;
 use App\Events\increaseScoreEvent;
 use App\Listeners\increaseScoreListener;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         increaseScoreEvent::class => [
             increaseScoreListener::class,
+        ],
+        increaseScoreCommentEvent::class => [
+            increaseScoreCommentListener::class,
         ],
     ];
 

@@ -50,7 +50,7 @@ class PostController extends Controller
          */
 
         $post = Post::create($request->all());
-        event(new increaseScoreEvent());
+        event(new increaseScoreEvent(50));
         return redirect()->route('post.show',$post);
     }
 

@@ -10,15 +10,15 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class increaseScoreEvent
+class increaseScoreCommentEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $score;
 
 
-    public function __construct($score)
+    public $user_id;
+    public function __construct($user_id)
     {
-       $this->score = $score;
+        $this->user_id = $user_id;
     }
 
 }

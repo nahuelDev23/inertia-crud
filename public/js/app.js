@@ -3378,6 +3378,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3400,6 +3401,7 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         comment: null,
         is_anon: false,
+        user_id_del_post: this.post[0].user_id,
         post_id: this.route().params.post
       }
     };
@@ -47644,14 +47646,14 @@ var render = function() {
                         ? _c("div", { staticClass: "comment__left" }, [
                             _c("span", [_vm._v(_vm._s(comment.user.name))]),
                             _vm._v(" "),
-                            _vm.$page.user.id == _vm.$page.post[0].user_id &&
+                            comment.user_id == _vm.$page.post[0].user_id &&
                             !_vm.$page.post[0].is_anon
                               ? _c(
                                   "span",
                                   { staticClass: "alert-danger p-1" },
                                   [_vm._v("Autor")]
                                 )
-                              : _vm._e()
+                              : _c("span", [_vm._v("efe")])
                           ])
                         : _c("div", [_vm._v("Anonimo")]),
                       _vm._v(" "),
@@ -62154,8 +62156,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp2\htdocs\inertia-crud\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/inertia-crud/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

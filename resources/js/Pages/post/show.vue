@@ -35,7 +35,8 @@
                         <div class="comment__perfil">
                             <div class="comment__left" v-if="!comment.is_anon && $page.user">
                                 <span >{{comment.user.name}}</span>
-                                <span class="alert-danger p-1" v-if="$page.user.id == $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
+                                <span class="alert-danger p-1" v-if="comment.user_id== $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
+                                <span v-else>efe</span>
                             </div>
                             <div v-else>Anonimo</div>
                            <div class="comment__right">
@@ -74,6 +75,7 @@ export default {
             form:{
                 comment:null,
                 is_anon:false,
+                user_id_del_post:this.post[0].user_id ,
                 post_id:this.route().params.post,
             }
         }

@@ -2,11 +2,12 @@
 
 namespace App\Listeners;
 
+use App\Events\increaseScoreCommentEvent;
+use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use App\Models\User;
-use App\Events\increaseScoreEvent;
-class increaseScoreListener
+
+class increaseScoreCommentListener
 {
     /**
      * Create the event listener.
@@ -24,9 +25,9 @@ class increaseScoreListener
      * @param  object  $event
      * @return void
      */
-    public function handle(increaseScoreEvent $event)
+    public function handle(increaseScoreCommentEvent $event)
     {
-        $scoreActual = User::select('score')->where('id',auth()->id())->get();
-        User::where('id',auth()->id())->update(['score'=>$scoreActual[0]['score']+$event->score]);
+        $scoreActualDelAutor = User::select('score')->where('id',$event->user_id)->get();
+        User::where('id',$event->user_id)->update(['score'=>$scoreActualDelAutor[0]['score']+100]);
     }
 }
