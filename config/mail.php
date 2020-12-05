@@ -40,7 +40,7 @@ return [
             'port' => 587,
             'encryption' => 'tls',
             'username' => 'nahuel.dev.bot@gmail.com',
-            'password' => 'toiccjvzflfeisnz',
+            'password' => 'jdmtsjjwdanfileq',
             'timeout' => null,
             'auth_mode' => null,
         ],
