@@ -48,9 +48,9 @@ class DatabaseSeeder extends Seeder
         Category::factory()->create([
             "category" => "LGBTQ+",
         ]);
-        User::factory(150)->create();
-        Post::factory(100)->create();
-        Comments::factory(200)->create();
+        //User::factory(150)->create();
+        //Post::factory(100)->create();
+        //Comments::factory(200)->create();
 
     }
 }
