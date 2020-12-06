@@ -45625,7 +45625,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "rounded-full p-4 bg-primary fixed right-4 bottom-4 ",
+      staticClass: "rounded-full p-4 bg-primary fixed right-4 bottom-4 z-100",
       attrs: { id: "show-modal" },
       on: {
         click: function($event) {
