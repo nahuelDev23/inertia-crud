@@ -9,6 +9,7 @@ use \App\Models\User;
 use \App\Models\Category;
 use \App\Models\Post;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         DB::table('categories')->truncate();
-
         Category::factory()->create([
             "category" => "General",
         ]);
@@ -52,6 +53,7 @@ class DatabaseSeeder extends Seeder
             "category" => "LGBTQ+",
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
         //User::factory(150)->create();
         //Post::factory(100)->create();
         //Comments::factory(200)->create();
