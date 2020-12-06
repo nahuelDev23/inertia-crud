@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('categories')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         Category::factory()->create([
             "category" => "General",
         ]);
@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
         Category::factory()->create([
             "category" => "LGBTQ+",
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         //User::factory(150)->create();
         //Post::factory(100)->create();
         //Comments::factory(200)->create();
