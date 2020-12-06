@@ -3,14 +3,27 @@
 namespace Database\Seeders;
 
 use App\Models\Comments;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Category;
 use \App\Models\Post;
+use Illuminate\Support\Facades\DB;
+
 class DatabaseSeeder extends Seeder
 {
+    protected $toTruncate = ['categories'];
     public function run()
     {
+
+        Model::unguard();
+
+        foreach($this->toTruncate as $table) {
+            DB::table($table)->truncate();
+        }
+        $this->call(Category::class);
+
+        Model::reguard();
 
         Category::factory()->create([
             "category" => "General",
