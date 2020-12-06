@@ -3566,7 +3566,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.secondary-color {\n  color: var(--secondary-color);\n}\n.alert-danger {\n  color: #721c24;\n  background-color: #f8d7da;\n  border-color: #f5c6cb;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\n             * A PARTIR DE 600 SE MUESTRA\n             */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.form {\n  background-color: red;\n}\n", ""]);
+exports.push([module.i, ":root {\n  --primary-color:#575965;\n  --text-color:#f8f8f6;\n  --secondary-color:#72d2e3;\n  --lgbt-color:#FEBAC6;\n  --sexualidad-color:#FF6F5E;\n  --consejo-color:#EFD2BC;\n  --videojuegos-color:#AADCCA;\n  --series-color:#F57B51;\n  --paranormal-color:#8D89A3;\n  --musica-color:#0096D1;\n  --gastronomia-color:#444251;\n  --noticias-color:#BC2C3D;\n  --politica-color:#2C2627;\n}\n.secondary-color {\n  color: var(--secondary-color);\n}\n.alert-danger {\n  color: #721c24;\n  background-color: #f8d7da;\n  border-color: #f5c6cb;\n}\n.hover-menu:hover {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.transition {\n  transition: all .5s;\n}\n.bg-primary {\n  background-color: var(--primary-color);\n}\n.border-color-secundary {\n  border: 1px solid var(--secondary-color);\n}\n.main-wrap {\n  max-width: 1200px;\n  margin: auto;\n  font-family: 'Inconsolata', monospace;\n}\n.header {\n  background-color: var(--primary-color);\n  border-bottom: 2px solid var(--secondary-color);\n}\n.header__nav {\n  display: flex;\n  flex-direction: row-reverse;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.header__list {\n  display: flex;\n  /**\n         * A PARTIR DE 600 SE MUESTRA\n         */\n}\n.header__item {\n  padding: 1rem;\n  color: var(--text-color);\n}\n.header__user {\n  display: flex;\n  align-items: center;\n  padding-left: 1rem;\n  color: #f8f8f6;\n}\n.header__icon {\n  font-size: 1.5rem;\n  margin-right: 1rem;\n}\n.active_link {\n  color: #72d2e3;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.form {\n  background-color: red;\n}\n", ""]);
 
 // exports
 
@@ -46213,7 +46213,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("span", [_vm._v("Categorias")]),
+                  _c("span", [_vm._v("Menu")]),
                   _vm._v(" "),
                   _c(
                     "svg",
@@ -46304,6 +46304,48 @@ var render = function() {
                         )
                       }),
                       _vm._v(" "),
+                      !_vm.$page.user
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "inertia-link",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-sm header__item header__item hover-menu",
+                                  class: _vm.route().current("register")
+                                    ? "active_link"
+                                    : "",
+                                  attrs: { href: _vm.route("register") }
+                                },
+                                [_vm._v("Registrate")]
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.$page.user
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "inertia-link",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-sm header__item header__item hover-menu",
+                                  class: _vm.route().current("login")
+                                    ? "active_link"
+                                    : "",
+                                  attrs: { href: _vm.route("login") }
+                                },
+                                [_vm._v("Logeate")]
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
                       _vm.$page.user
                         ? _c(
                             "a",
@@ -46325,47 +46367,7 @@ var render = function() {
                   )
                 ]
               )
-            ]),
-            _vm._v(" "),
-            !_vm.$page.user
-              ? _c(
-                  "li",
-                  { staticClass: "header__item" },
-                  [
-                    _c(
-                      "inertia-link",
-                      {
-                        class: _vm.route().current("register")
-                          ? "secondary-color"
-                          : "",
-                        attrs: { href: _vm.route("register") }
-                      },
-                      [_vm._v("Register")]
-                    )
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$page.user
-              ? _c(
-                  "li",
-                  { staticClass: "header__item" },
-                  [
-                    _c(
-                      "inertia-link",
-                      {
-                        class: _vm.route().current("login")
-                          ? "secondary-color"
-                          : "",
-                        attrs: { href: _vm.route("login") }
-                      },
-                      [_vm._v("Login")]
-                    )
-                  ],
-                  1
-                )
-              : _vm._e()
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "header__user" }, [
