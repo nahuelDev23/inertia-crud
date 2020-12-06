@@ -35,9 +35,9 @@
                 <div class="comment__box" v-for="comment in comments">
                     <div class="comment__comment shadow" :class="comment.is_anon ? 'comment__anon' : '' ">
                         <div class="comment__perfil">
-                            <div class="comment__left" v-if="!comment.is_anon && $page.user">
+                            <div class="comment__left" v-if="!comment.is_anon">
                                 <span >{{comment.user.name}}</span>
-                                <span class="alert-danger p-1" v-if="comment.user_id== $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
+                                <span class="alert-danger p-1" v-if="comment.user_id == $page.post[0].user_id && !$page.post[0].is_anon">Autor</span>
                                 <span v-else></span>
                             </div>
                             <div v-else>Anonimo</div>

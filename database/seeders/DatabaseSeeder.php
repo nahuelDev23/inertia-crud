@@ -16,9 +16,6 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Schema::disableForeignKeyConstraints();
-        DB::table('categories')->truncate();
         Category::factory()->create([
             "category" => "General",
         ]);
@@ -52,8 +49,7 @@ class DatabaseSeeder extends Seeder
         Category::factory()->create([
             "category" => "LGBTQ+",
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        Schema::enableForeignKeyConstraints();
+
         //User::factory(150)->create();
         //Post::factory(100)->create();
         //Comments::factory(200)->create();

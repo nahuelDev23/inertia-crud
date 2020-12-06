@@ -47989,7 +47989,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "comment__perfil" }, [
-                      !comment.is_anon && _vm.$page.user
+                      !comment.is_anon
                         ? _c("div", { staticClass: "comment__left" }, [
                             _c("span", [_vm._v(_vm._s(comment.user.name))]),
                             _vm._v(" "),

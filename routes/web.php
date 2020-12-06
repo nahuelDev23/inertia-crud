@@ -16,10 +16,8 @@ Route::resource('post',PostController::class);
 
 Route::post('comment/store',[CommentsController::class,'store'])->name('comment.store');
 
-
-
 Route::get('General',[VistasController::class,'general'])->name('General');
-Route::get('Sexualidad',[VistasController::class,'sexualidad'])->name('Sexualidad');
+Route::get('Sexualidad',[VistasController::class,'sexualidad'])->name('Sexualidad')->middleware('verified');
 Route::get('Consejos',[VistasController::class,'consejos'])->name('Consejos');
 Route::get('Videojuegos',[VistasController::class,'videojuegos'])->name('Videojuegos');
 Route::get('Series',[VistasController::class,'series'])->name('Series');
@@ -29,7 +27,7 @@ Route::get('Gastronomia',[VistasController::class,'gastronomia'])->name('Gastron
 Route::get('Noticias',[VistasController::class,'noticias'])->name('Noticias');
 Route::get('Politica',[VistasController::class,'politica'])->name('Politica');
 Route::get('Informatica',[VistasController::class,'informatica'])->name('Informatica');
-Route::get('LGBTQ+',[VistasController::class,'lgbtq'])->name('LGBTQ+');
+Route::get('LGBTQ+',[VistasController::class,'lgbtq'])->name('LGBTQ+')->middleware('verified');
 
 
 
