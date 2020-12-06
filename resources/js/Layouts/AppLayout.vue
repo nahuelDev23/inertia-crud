@@ -11,7 +11,7 @@
                             </svg>
                         </li>
                         <!--menu oculto-->
-                        <div :class="hidden ? 'transform opacity-0 scale-95 hidden' : 'transform opacity-100 scale-100 block' " class="  border-color-secundary bg-primary mr-4 transition origin-top-right absolute right-0 mt-2 w-56 z-10 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 ">
+                        <div :class="hidden ? 'transform opacity-0 scale-95 hidden' : 'transform opacity-100 scale-100 block' " class="  border-color-secundary bg-primary mr-4 transition origin-top-right absolute right-0 mt-2 w-56 z-50 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 ">
                             <div  class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                 <inertia-link :href="route('home')" :class="route().current('home') ? 'active_link' : ''" class="block px-4 py-2 text-sm header__item header__item hover-menu" role="menuitem">Home</inertia-link>
                                 <div v-for="categories in $page.categories" v-bind:key="categories.id">

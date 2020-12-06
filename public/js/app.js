@@ -45625,7 +45625,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "rounded-full p-4 bg-primary fixed right-4 bottom-4 z-100",
+      staticClass: "rounded-full p-4 bg-primary fixed right-4 bottom-4 z-40",
       attrs: { id: "show-modal" },
       on: {
         click: function($event) {
@@ -46244,7 +46244,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "  border-color-secundary bg-primary mr-4 transition origin-top-right absolute right-0 mt-2 w-56 z-10 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 ",
+                    "  border-color-secundary bg-primary mr-4 transition origin-top-right absolute right-0 mt-2 w-56 z-50 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 ",
                   class: _vm.hidden
                     ? "transform opacity-0 scale-95 hidden"
                     : "transform opacity-100 scale-100 block"
