@@ -12,18 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    protected $toTruncate = ['categories'];
+
     public function run()
     {
-
-        Model::unguard();
-
-        foreach($this->toTruncate as $table) {
-            DB::table($table)->truncate();
-        }
-        $this->call(Category::class);
-
-        Model::reguard();
+        DB::table('categories')->truncate();
 
         Category::factory()->create([
             "category" => "General",
