@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        DB::table('categories')->truncate();
-
         Category::factory()->create([
             "category" => "General",
         ]);
