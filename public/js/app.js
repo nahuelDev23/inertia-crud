@@ -46387,7 +46387,8 @@ var render = function() {
                   _vm._v(
                     _vm._s(_vm.$page.user.name) +
                       " " +
-                      _vm._s(_vm.$page.user.score)
+                      _vm._s(_vm.$page.user.score) +
+                      "EXP"
                   )
                 ])
               : _vm._e()

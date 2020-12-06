@@ -35,7 +35,7 @@
                 </ul>
                 <div class="header__user">
                     <span class="header__icon"><inertia-link :href="route('home')">🧠</inertia-link></span>
-                    <div  class="header__name" v-if="$page.user">{{$page.user.name}} {{$page.user.score}}</div>
+                    <div  class="header__name" v-if="$page.user">{{$page.user.name}} {{$page.user.score}}EXP</div>
                 </div>
             </nav>
         </header>
